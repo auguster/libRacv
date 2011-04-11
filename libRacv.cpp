@@ -6,3 +6,14 @@
  */
 
 #include <libRacv.hpp>
+
+#include <iostream>
+
+namespace racv {
+
+	void test()
+	{
+		std::cout << "libRacv say hello !" << std::endl;
+	}
+
+}  // namespace racv

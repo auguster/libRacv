@@ -7,3 +7,12 @@
 
 #include <colorNormalization/greyworld.hpp>
 
+namespace racv
+{
+
+	cv::Mat grayworld(cv::Mat &image)
+	{
+		return image;
+	}
+
+} // namespace racv
