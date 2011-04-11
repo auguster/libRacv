@@ -5,3 +5,5 @@
  *      Author: auguster
  */
 
+#include <colorNormalization/greyworld.hpp>
+
