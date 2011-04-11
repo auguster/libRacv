@@ -8,29 +8,38 @@
 #ifndef POINTS_HPP_
 #define POINTS_HPP_
 
-/**
- * Computes a rectangle fitting the cloud of points
- */
-cv::Rect computeRectangle(std::vector<cv::Point2f> points);
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
-/**
- * Changes the coordinate of a vector of points
- * origin: new origin relative to the current one
- * points: the points to modify
- */
-void changeOrigin(cv::Point origin, cv::vector<cv::Point2f> &points);
+namespace racv {
 
-/**
- * Returns a new vector of points where the points that are not marked in status have been removed.
- * points: the points
- * status: check if each status is > 0, the order has to be the same in both parameters
- * Note: the parameters are not modified
- */
-cv::vector<cv::Point2f> filterOut(cv::vector<cv::Point2f> &points, std::vector<uchar> &status);
+	/**
+	 * Computes a rectangle fitting the cloud of points
+	 */
+	cv::Rect computeRectangle(std::vector<cv::Point2f> points);
 
-/**
- * Draws a cloud of points into the image
- */
-void drawPoints(cv::Mat image, cv::vector<cv::Point2f> &points, cv::Scalar color = CV_RGB(0, 0, 255));
+	/**
+	 * Changes the coordinate of a vector of points
+	 * origin: new origin relative to the current one
+	 * points: the points to modify
+	 */
+	void changeOrigin(cv::Point origin, cv::vector<cv::Point2f> &points);
+
+	/**
+	 * Returns a new vector of points where the points that are not marked in status have been removed.
+	 * points: the points
+	 * status: check if each status is > 0, the order has to be the same in both parameters
+	 * Note: the parameters are not modified
+	 */
+	cv::vector<cv::Point2f> filterOut(cv::vector<cv::Point2f> &points, std::vector<uchar> &status);
+
+	/**
+	 * Draws a cloud of points into the image
+	 */
+	void drawPoints(cv::Mat image, cv::vector<cv::Point2f> &points, cv::Scalar color = CV_RGB(0, 0, 255));
+
+}  // namespace racv
+
+
 
 #endif /* POINTS_HPP_ */

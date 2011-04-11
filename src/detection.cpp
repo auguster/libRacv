@@ -6,6 +6,8 @@
  */
 #include <detection.hpp>
 
+#include <opencv2/imgproc/imgproc.hpp>
+
 void smartDetect(cv::CascadeClassifier detector, cv::Mat &frame, std::vector<cv::Rect> &rectList)
 {
 	cv::Mat smallerFrame;

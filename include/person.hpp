@@ -8,19 +8,24 @@
 #ifndef PERSON_HPP_
 #define PERSON_HPP_
 
-typedef struct
+namespace racv
 {
-		cv::Point left;
-		cv::Point right;
-} Eyes;
 
-typedef struct
-{
-		cv::Rect face;
-		double angle;
-		Eyes eyes;
-} Person;
+	typedef struct
+	{
+			cv::Point left;
+			cv::Point right;
+	} Eyes;
 
-typedef std::vector<Person> Persons;
+	typedef struct
+	{
+			cv::Rect face;
+			double angle;
+			Eyes eyes;
+	} Person;
+
+	typedef std::vector<Person> Persons;
+
+} // namespace racv
 
 #endif /* PERSON_HPP_ */
