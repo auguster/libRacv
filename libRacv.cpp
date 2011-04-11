@@ -13,7 +13,7 @@ namespace racv {
 
 	void test()
 	{
-		std::cout << "libRacv say hello !" << std::endl;
+		std::cout << "libRacv is working !" << std::endl;
 	}
 
 }  // namespace racv

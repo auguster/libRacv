@@ -12,7 +12,7 @@
 
 namespace racv {
 
-cv::Mat grayworld(cv::Mat &image);
+cv::Mat greyworld(cv::Mat &image);
 
 }  // namespace racv
 

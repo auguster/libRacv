@@ -16,6 +16,9 @@
 
 namespace racv
 {
+	/**
+	 * Easy way to test if libRacv is working
+	 */
 	void test();
 } // namespace racv
 
