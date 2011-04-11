@@ -10,11 +10,12 @@
 
 #include <opencv2/core/core.hpp>
 
-namespace racv {
+namespace racv
+{
 
-cv::Mat greyworld(cv::Mat &image);
+	cv::Mat greyworld(cv::Mat image);
 
-}  // namespace racv
+} // namespace racv
 
 
 #endif /* GREYWORLD_HPP_ */
