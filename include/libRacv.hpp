@@ -13,6 +13,8 @@
 #include <detection.hpp>
 #include <person.hpp>
 #include <points.hpp>
+#include <color.hpp>
+#include <matrix.hpp>
 
 namespace racv
 {
