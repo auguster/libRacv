@@ -11,7 +11,7 @@
 #include <opencv2/core/core.hpp>
 
 namespace racv {
-	void showMatrix(const cv::Mat matrix);
+
 }
 
 #endif /* MATRIX_HPP_ */
