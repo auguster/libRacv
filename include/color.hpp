@@ -10,8 +10,8 @@
 
 //FIXME make a enum instead of a define ?
 #define RACV_RED_CHANNEL 0
-#define RACV_BLUE_CHANNEL 1
-#define RACV_GREEN_CHANNEL 2
+#define RACV_GREEN_CHANNEL 1
+#define RACV_BLUE_CHANNEL 2
 
 namespace racv {
 void showPixelColor(int color);
