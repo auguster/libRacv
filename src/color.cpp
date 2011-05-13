@@ -9,16 +9,18 @@
 
 #include <iostream>
 
-namespace racv {
+namespace racv
+{
 
-int getChannel(int color, int channel) {
-	return (color >> ((2 - channel) * 8) & 255);
-}
+	int getChannel(int color, COLOR channel)
+	{
+		return (color >> ((2 - channel) * 8) & 255);
+	}
 
-void showPixelColor(int color) {
-	std::cout << "RGB(" << getChannel(color, RACV_RED_CHANNEL) << ", " << getChannel(color, RACV_BLUE_CHANNEL)
-			<< ", " << getChannel(color, RACV_GREEN_CHANNEL) << ")" << std::endl;
-}
+	void showPixelColor(int pixel)
+	{
+		std::cout << "RGB(" << getChannel(pixel, RED_CHANNEL) << ", " << getChannel(pixel, GREEN_CHANNEL) << ", " << getChannel(pixel, BLUE_CHANNEL) << ")" << std::endl;
+	}
 
 }
 
