@@ -8,12 +8,12 @@
 #ifndef COLOR_HPP_
 #define COLOR_HPP_
 
+#define RACV_RED_CHANNEL 0
+#define RACV_GREEN_CHANNEL 1
+#define RACV_BLUE_CHANNEL 2
+
 namespace racv
 {
-#define RED_CHANNEL 0
-#define GREEN_CHANNEL 1
-#define BLUE_CHANNEL 2
-
 	void showPixelColor(int pixel);
 	int getChannel(int pixel, int channel);
 }
