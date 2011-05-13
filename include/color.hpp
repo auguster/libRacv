@@ -10,12 +10,12 @@
 
 namespace racv
 {
-	typedef enum
-	{
-		RED_CHANNEL, GREEN_CHANNEL, BLUE_CHANNEL
-	} COLOR;
+#define RED_CHANNEL 0
+#define GREEN_CHANNEL 1
+#define BLUE_CHANNEL 2
+
 	void showPixelColor(int pixel);
-	int getChannel(int pixel, COLOR channel);
+	int getChannel(int pixel, int channel);
 }
 
 #endif /* COLOR_HPP_ */

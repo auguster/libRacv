@@ -12,7 +12,7 @@
 namespace racv
 {
 
-	int getChannel(int color, COLOR channel)
+	int getChannel(int color, int channel)
 	{
 		return (color >> ((2 - channel) * 8) & 255);
 	}
