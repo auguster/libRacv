@@ -29,7 +29,16 @@ namespace racv
 
 	protected:
 		Pipe *next;
+
+		/**
+		 * Process to apply to all the data coming through this pipe
+		 */
 		virtual Pipe::PipeMsg processing(Pipe::PipeMsg msg);
+
+		/**
+		 * Process to apply to each piece of data
+		 * Note: when processing() is not overloaded it automatically call processingSingleFrame with each piece of data
+		 */
 		virtual void processingSingleFrame(cv::Mat *image);
 	};
 }

@@ -13,5 +13,6 @@
 #include "Pipe.hpp"
 #include "Reservoir.hpp"
 #include "ShowFrames.hpp"
+#include "BodyDetect.hpp"
 
 #endif /* PIPES_HPP_ */
