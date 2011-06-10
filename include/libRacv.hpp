@@ -15,6 +15,7 @@
 #include <points.hpp>
 #include <color.hpp>
 #include <matrix.hpp>
+#include <pipes/pipes.hpp>
 
 namespace racv
 {

@@ -19,7 +19,7 @@ namespace racv
 
 	void showPixelColor(int pixel)
 	{
-		std::cout << "RGB(" << getChannel(pixel, RED_CHANNEL) << ", " << getChannel(pixel, GREEN_CHANNEL) << ", " << getChannel(pixel, BLUE_CHANNEL) << ")" << std::endl;
+		std::cout << "RGB(" << getChannel(pixel, RACV_RED_CHANNEL) << ", " << getChannel(pixel, RACV_GREEN_CHANNEL) << ", " << getChannel(pixel, RACV_BLUE_CHANNEL) << ")" << std::endl;
 	}
 
 }
