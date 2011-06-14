@@ -11,11 +11,11 @@
 
 #include <colorNormalization/colorNormalization.hpp>
 #include <detection.hpp>
-#include <person.hpp>
 #include <points.hpp>
 #include <color.hpp>
 #include <matrix.hpp>
 #include <pipes/pipes.hpp>
+#include <Person.hpp>
 
 namespace racv
 {
