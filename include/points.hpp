@@ -38,6 +38,11 @@ namespace racv {
 	 */
 	void drawPoints(cv::Mat image, cv::vector<cv::Point2f> &points, cv::Scalar color = CV_RGB(0, 0, 255));
 
+	/**
+	 * returns the horizontal angle between two points included in a rectangle
+	 */
+	double horizontalAngle(cv::Point p1, cv::Point p2, cv::Rect facer);
+
 }  // namespace racv
 
 

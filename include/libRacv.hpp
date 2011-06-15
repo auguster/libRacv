@@ -15,7 +15,8 @@
 #include <color.hpp>
 #include <matrix.hpp>
 #include <pipes/pipes.hpp>
-#include <Person.hpp>
+#include <person.hpp>
+#include <rectangle.hpp>
 
 namespace racv
 {

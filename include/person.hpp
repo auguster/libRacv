@@ -18,8 +18,8 @@ namespace racv
 	{
 		cv::Rect *face;
 		double angle;
-		cv::Rect *leftEye;
-		cv::Rect *rightEye;
+		cv::Point *leftEye;
+		cv::Point *rightEye;
 
 	public:
 		Person();
@@ -27,13 +27,13 @@ namespace racv
 
 		double getAngle() const;
 		cv::Rect *getFace() const;
-		cv::Rect *getLeftEye() const;
-		cv::Rect *getRightEye() const;
+		cv::Point *getLeftEye() const;
+		cv::Point *getRightEye() const;
 
 		void setAngle(double angle);
 		void setFace(cv::Rect *face);
-		void setLeftEye(cv::Rect *leftEye);
-		void setRightEye(cv::Rect *rightEye);
+		void setLeftEye(cv::Point *leftEye);
+		void setRightEye(cv::Point *rightEye);
 
 		/**
 		 * Saves the Person to an XML file
@@ -45,8 +45,8 @@ namespace racv
 		 * This function can be used to append multiple Persons in a single XML file
 		 */
 		TiXmlElement *generateXml();
+		std::string generateXmlCode();
 	};
-
 }
 
 #endif /* PERSON_HPP_ */

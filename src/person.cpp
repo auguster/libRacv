@@ -5,7 +5,7 @@
  *      Author: remi
  */
 
-#include <Person.hpp>
+#include <person.hpp>
 
 namespace racv
 {
@@ -32,12 +32,12 @@ namespace racv
 		return face;
 	}
 
-	cv::Rect *Person::getLeftEye() const
+	cv::Point *Person::getLeftEye() const
 	{
 		return leftEye;
 	}
 
-	cv::Rect *Person::getRightEye() const
+	cv::Point *Person::getRightEye() const
 	{
 		return rightEye;
 	}
@@ -52,12 +52,12 @@ namespace racv
 		this->face = face;
 	}
 
-	void Person::setLeftEye(cv::Rect *leftEye)
+	void Person::setLeftEye(cv::Point *leftEye)
 	{
 		this->leftEye = leftEye;
 	}
 
-	void Person::setRightEye(cv::Rect *rightEye)
+	void Person::setRightEye(cv::Point *rightEye)
 	{
 		this->rightEye = rightEye;
 	}
@@ -79,9 +79,12 @@ namespace racv
 		person->SetAttribute("x2", this->face->x + this->face->width);
 		person->SetAttribute("y2", this->face->y + this->face->height);
 
-		TiXmlElement *angle = new TiXmlElement("angle");
-		angle->SetDoubleAttribute("value", this->angle);
-		person->LinkEndChild(angle);
+		if (this->angle != 0)
+		{
+			TiXmlElement *angle = new TiXmlElement("angle");
+			angle->SetDoubleAttribute("value", this->angle);
+			person->LinkEndChild(angle);
+		}
 
 		if (this->leftEye || this->rightEye)
 		{
@@ -90,20 +93,16 @@ namespace racv
 			if (this->leftEye)
 			{
 				TiXmlElement *leftEye = new TiXmlElement("left");
-				leftEye->SetAttribute("x1", this->leftEye->x);
-				leftEye->SetAttribute("y1", this->leftEye->y);
-				leftEye->SetAttribute("x2", this->leftEye->x + this->leftEye->width);
-				leftEye->SetAttribute("y2", this->leftEye->y + this->leftEye->height);
+				leftEye->SetAttribute("x", this->leftEye->x);
+				leftEye->SetAttribute("y", this->leftEye->y);
 				eyes->LinkEndChild(leftEye);
 			}
 
 			if (this->rightEye)
 			{
 				TiXmlElement *rightEye = new TiXmlElement("right");
-				rightEye->SetAttribute("x1", this->rightEye->x);
-				rightEye->SetAttribute("y1", this->rightEye->y);
-				rightEye->SetAttribute("x2", this->rightEye->x + this->rightEye->width);
-				rightEye->SetAttribute("y2", this->rightEye->y + this->rightEye->height);
+				rightEye->SetAttribute("x", this->rightEye->x);
+				rightEye->SetAttribute("y", this->rightEye->y);
 				eyes->LinkEndChild(rightEye);
 			}
 
@@ -113,4 +112,35 @@ namespace racv
 		return person;
 	}
 
+	std::string Person::generateXmlCode()
+	{
+		std::stringstream ss;
+		ss << "<person x1=\"" << this->face->x << "\" y1=\"" << this->face->y << "\" x2=\"" << this->face->x + this->face->width << "\" y2=\"" << this->face->y
+				+ this->face->height << "\">" << std::endl;
+
+		if (this->angle != 0)
+		{
+			ss << "<angle value=\"" << this->angle << "\" />" << std::endl;
+		}
+
+		if (this->leftEye || this->rightEye)
+		{
+			ss << "<eyes>" << std::endl;
+
+			if (this->leftEye)
+			{
+				ss << "<left x=\"" << this->leftEye->x << "\" y=\"" << this->leftEye->y << "\" />" << std::endl;
+			}
+
+			if (this->rightEye)
+			{
+				ss << "<right x=\"" << this->rightEye->x << "\" y=\"" << this->rightEye->y << "\" />" << std::endl;
+			}
+
+			ss << "</eyes>" << std::endl;
+		}
+		ss << "</person>" << std::endl;
+
+		return ss.str();
+	}
 }
