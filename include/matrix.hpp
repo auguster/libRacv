@@ -11,8 +11,9 @@
 #include <opencv2/core/core.hpp>
 
 namespace racv {
-	template < typename typenombre >
+	template < class typenombre >
 	cv::Mat *tab2mat(typenombre *tab, int length);
+	cv::Mat *tab2mat(double *tab, int length);
 }
 
 #endif /* MATRIX_HPP_ */
