@@ -10,7 +10,7 @@
 
 namespace racv {
 	template < class typenombre >
-	cv::Mat *tab2mat(typenombre *tab, int length)
+	cv::Mat *tab2mat(typenombre *tab, int length) //FIXME l'appel ne fonctionne pas ...
 	{
 		cv::Mat *matrice;
 		matrice = new cv::Mat(length, 1, CV_64F);

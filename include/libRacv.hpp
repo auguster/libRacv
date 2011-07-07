@@ -17,6 +17,7 @@
 #include <pipes/pipes.hpp>
 #include <person.hpp>
 #include <rectangle.hpp>
+#include <drawing/drawing.hpp>
 
 namespace racv
 {
