@@ -12,7 +12,7 @@
 
 namespace racv
 {
-	class Gray: public Pipe
+	class Gray: virtual public Pipe
 	{
 	public:
 		Gray();

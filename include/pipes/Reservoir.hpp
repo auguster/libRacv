@@ -29,6 +29,7 @@ namespace racv
 		 * capture: passage manuel de la capture à exploiter
 		 */
 		Reservoir(cv::VideoCapture *capture);
+
 		virtual ~Reservoir();
 
 		/**
@@ -40,6 +41,8 @@ namespace racv
 		 *
 		 */
 		void flood();
+
+		cv::VideoCapture *getCapture();
 
 		cv::Size frameSize();
 

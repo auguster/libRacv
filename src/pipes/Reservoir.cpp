@@ -90,4 +90,11 @@ namespace racv
 		delete frame;
 		return size;
 	}
+
+	cv::VideoCapture *Reservoir::getCapture()
+	{
+		return this->capture;
+	}
 }
+
+

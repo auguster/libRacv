@@ -12,14 +12,12 @@
 
 namespace racv
 {
-	ShowFrames::ShowFrames(std::string name)
-	{
-		this->name = name;
-	}
+	ShowFrames::ShowFrames(std::string name) :
+		name(name)
+	{}
 
 	ShowFrames::~ShowFrames()
-	{
-	}
+	{}
 
 	void ShowFrames::processingSingleFrame(cv::Mat *image)
 	{
