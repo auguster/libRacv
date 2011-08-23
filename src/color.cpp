@@ -11,6 +11,10 @@
 
 namespace racv
 {
+	int getColor(int r, int g, int b)
+	{
+		return (r*256+g)*256+b;
+	}
 
 	int getChannel(int color, int channel)
 	{
