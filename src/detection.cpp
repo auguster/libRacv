@@ -13,6 +13,12 @@ namespace racv
 
 	void smartDetect(cv::CascadeClassifier detector, cv::Mat &frame, std::vector<cv::Rect> &rectList)
 	{
+		if (rectList.size() <= 0)
+		{
+			detector.detectMultiScale(frame, rectList, 1.3);
+			return;
+		}
+
 		cv::Mat smallerFrame;
 		std::vector<cv::Rect> list;
 		double scaleLevel = 0.125;

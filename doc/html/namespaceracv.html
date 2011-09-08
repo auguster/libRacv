@@ -96,6 +96,7 @@ Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1ShowFrames.html">ShowFrames</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a55de2447106bc3834a8d21f311c8cad5">getColor</a> (int r, int g, int b)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a273c6a1f5cd30dc226bc06cb60f116d5">showPixelColor</a> (int pixel)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#acfa4be3cd77eaabaf2f2b05e276fb639">getChannel</a> (int pixel, int channel)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a6ad01a2e2850baee2a49930601f151c1">greyworld</a> (cv::Mat image)</td></tr>
@@ -164,64 +165,6 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="a270ae2a55891e15938b491e9eeffd669"></a><!-- doxytag: member="racv::drawFilledEllipse" ref="a270ae2a55891e15938b491e9eeffd669" args="(cv::Mat &amp;image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &amp;color)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void racv::drawFilledEllipse </td>
-          <td>(</td>
-          <td class="paramtype">cv::Mat &amp;&#160;</td>
-          <td class="paramname"><em>image</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">cv::Point&#160;</td>
-          <td class="paramname"><em>center</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">cv::Size&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>angle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>startingAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>endingAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const cv::Scalar &amp;&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Draws a filled ellipse on an image </p>
-
-</div>
-</div>
 <a class="anchor" id="afd40a9ecdb6ae14492f7703e4f939fcc"></a><!-- doxytag: member="racv::drawFilledEllipse" ref="afd40a9ecdb6ae14492f7703e4f939fcc" args="(cv::Mat &amp;image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &amp;color, double alpha)" -->
 <div class="memitem">
 <div class="memproto">
@@ -282,6 +225,64 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
       </table>
 </div>
 <div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a270ae2a55891e15938b491e9eeffd669"></a><!-- doxytag: member="racv::drawFilledEllipse" ref="a270ae2a55891e15938b491e9eeffd669" args="(cv::Mat &amp;image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &amp;color)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void racv::drawFilledEllipse </td>
+          <td>(</td>
+          <td class="paramtype">cv::Mat &amp;&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Point&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Size&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>startingAngle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>endingAngle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Scalar &amp;&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Draws a filled ellipse on an image </p>
 
 </div>
 </div>
@@ -398,6 +399,41 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
       </table>
 </div>
 <div class="memdoc">
+<p>Returns the value from a given channel (use RACV_&lt;color&gt;_CHANNEL) </p>
+
+</div>
+</div>
+<a class="anchor" id="a55de2447106bc3834a8d21f311c8cad5"></a><!-- doxytag: member="racv::getColor" ref="a55de2447106bc3834a8d21f311c8cad5" args="(int r, int g, int b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int racv::getColor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Returns the pixel value corresponding to the RGB values </p>
 
 </div>
 </div>
@@ -521,6 +557,7 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
       </table>
 </div>
 <div class="memdoc">
+<p>Displays with std::cout the pixel's RGB values </p>
 
 </div>
 </div>
@@ -636,7 +673,7 @@ template&lt;class typenombre &gt; </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="namespaceracv.html">racv</a>      </li>
-      <li class="footer">Generated on Wed Jul 27 2011 15:51:33 for libRacv by&#160;
+      <li class="footer">Generated on Thu Sep 8 2011 15:26:08 for libRacv by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>
