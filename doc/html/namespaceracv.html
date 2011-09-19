@@ -117,6 +117,9 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#ac7ce24fc0e49013fc80755db4474d26f">horizontalAngle</a> (cv::Point p1, cv::Point p2, cv::Rect facer)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#ae771a0c0647bda95b871c7c03f3e254f">isOverlapping</a> (cv::Rect A, cv::Rect B)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a0969d1f68a6d329c79b267c97d26b4d6">merge</a> (std::vector&lt; cv::Rect &gt; &amp;source, std::vector&lt; cv::Rect &gt; &amp;destination)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#ab3db3c9ca2625502c506c3186ee0b7c2">scaleRectangle</a> (cv::Rect &amp;rectangle, double scale)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#af3586abe7e88994abdb9097952d8bf7d">fitRectangle</a> (cv::Mat image, cv::Rect &amp;rectangle)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a704323a62fb78c5bdb9351b24cbc7659">isNear</a> (cv::Rect aRect, cv::Rect bRect, double pourcent=1.1)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ab9e35a7aa7b320b6b196d50b705ce1e9"></a><!-- doxytag: member="racv::changeOrigin" ref="ab9e35a7aa7b320b6b196d50b705ce1e9" args="(cv::Point origin, cv::vector&lt; cv::Point2f &gt; &amp;points)" -->
@@ -375,6 +378,34 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
+<a class="anchor" id="af3586abe7e88994abdb9097952d8bf7d"></a><!-- doxytag: member="racv::fitRectangle" ref="af3586abe7e88994abdb9097952d8bf7d" args="(cv::Mat image, cv::Rect &amp;rectangle)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void racv::fitRectangle </td>
+          <td>(</td>
+          <td class="paramtype">cv::Mat&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Rect &amp;&#160;</td>
+          <td class="paramname"><em>rectangle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>this function makes sure that a rectangle doesn't go outside the image boundaries </p>
+
+</div>
+</div>
 <a class="anchor" id="acfa4be3cd77eaabaf2f2b05e276fb639"></a><!-- doxytag: member="racv::getChannel" ref="acfa4be3cd77eaabaf2f2b05e276fb639" args="(int pixel, int channel)" -->
 <div class="memitem">
 <div class="memproto">
@@ -488,6 +519,40 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
+<a class="anchor" id="a704323a62fb78c5bdb9351b24cbc7659"></a><!-- doxytag: member="racv::isNear" ref="a704323a62fb78c5bdb9351b24cbc7659" args="(cv::Rect aRect, cv::Rect bRect, double pourcent=1.1)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool racv::isNear </td>
+          <td>(</td>
+          <td class="paramtype">cv::Rect&#160;</td>
+          <td class="paramname"><em>aRect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Rect&#160;</td>
+          <td class="paramname"><em>bRect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>pourcent</em> = <code>1.1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>returns true if bRect overlaps an upscaled (10% by default) version of aRect NB: if pourcent == 1, just call isOverlapping </p>
+
+</div>
+</div>
 <a class="anchor" id="ae771a0c0647bda95b871c7c03f3e254f"></a><!-- doxytag: member="racv::isOverlapping" ref="ae771a0c0647bda95b871c7c03f3e254f" args="(cv::Rect A, cv::Rect B)" -->
 <div class="memitem">
 <div class="memproto">
@@ -512,6 +577,7 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
       </table>
 </div>
 <div class="memdoc">
+<p>this function checks if two rectangles are overlapping </p>
 
 </div>
 </div>
@@ -540,6 +606,34 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 <p>Merge vector source with vector destination into destination </p>
+
+</div>
+</div>
+<a class="anchor" id="ab3db3c9ca2625502c506c3186ee0b7c2"></a><!-- doxytag: member="racv::scaleRectangle" ref="ab3db3c9ca2625502c506c3186ee0b7c2" args="(cv::Rect &amp;rectangle, double scale)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void racv::scaleRectangle </td>
+          <td>(</td>
+          <td class="paramtype">cv::Rect &amp;&#160;</td>
+          <td class="paramname"><em>rectangle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>this function transforms the rectangle into a scaled version of itself even the origins are scaled this function is for space change </p>
 
 </div>
 </div>
@@ -673,7 +767,7 @@ template&lt;class typenombre &gt; </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="namespaceracv.html">racv</a>      </li>
-      <li class="footer">Generated on Thu Sep 8 2011 15:26:08 for libRacv by&#160;
+      <li class="footer">Generated on Mon Sep 19 2011 17:04:27 for libRacv by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>
