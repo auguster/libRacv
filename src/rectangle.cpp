@@ -34,4 +34,29 @@ namespace racv
 			}
 		}
 	}
+
+	void scaleRectangle(cv::Rect &rectangle, double scale)
+	{
+		rectangle.x *= scale;
+		rectangle.y *= scale;
+		rectangle.width *= scale;
+		rectangle.height *= scale;
+	}
+
+	void fitRectangle(cv::Mat image, cv::Rect& rectangle)
+	{
+		rectangle.x = cv::max(0, rectangle.x);
+		rectangle.y = cv::max(0, rectangle.y);
+		rectangle.width = cv::min(rectangle.width, image.cols - rectangle.x);
+		rectangle.height = cv::min(rectangle.height, image.rows - rectangle.y);
+	}
+
+	/**
+	 * returns true if bRect overlaps an upscaled (10% ?) version of aRect
+	 */
+	bool isNear(cv::Rect aRect, cv::Rect bRect, double pourcent)
+	{
+		racv::scaleRectangle(aRect, pourcent);
+		return racv::isOverlapping(aRect, bRect);
+	}
 }
