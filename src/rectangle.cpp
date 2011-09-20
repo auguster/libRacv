@@ -7,12 +7,14 @@
 
 #include <rectangle.hpp>
 
+#include <iostream>
+
 namespace racv
 {
 	bool isOverlapping(cv::Rect A, cv::Rect B)
 	{
-		return (((A.x < B.x) && (B.x < (A.x + A.width))) && ((A.y < B.y) && (B.y < (A.y + A.height)))) || (((A.x < (B.x + B.width))
-				&& ((B.x + B.width) < (A.x + A.width))) && ((A.y < (B.y + B.height)) && ((B.y + B.height) < (A.y + A.height))));
+		return (((A.x <= B.x) && (B.x <= (A.x + A.width))) && ((A.y <= B.y) && (B.y <= (A.y + A.height)))) || (((A.x <= (B.x + B.width))
+				&& ((B.x + B.width) <= (A.x + A.width))) && ((A.y <= (B.y + B.height)) && ((B.y + B.height) <= (A.y + A.height))));
 	}
 
 	void merge(std::vector<cv::Rect> &source, std::vector<cv::Rect> &destination)
@@ -43,6 +45,14 @@ namespace racv
 		rectangle.height *= scale;
 	}
 
+	void scaleRectangleKeepCenter(cv::Rect &rectangle, double scale)
+	{
+		rectangle.x -= (rectangle.width * scale - rectangle.width) / 2;
+		rectangle.y -= (rectangle.height * scale - rectangle.height) / 2;
+		rectangle.width *= scale;
+		rectangle.height *= scale;
+	}
+
 	void fitRectangle(cv::Mat image, cv::Rect& rectangle)
 	{
 		rectangle.x = cv::max(0, rectangle.x);
@@ -56,7 +66,15 @@ namespace racv
 	 */
 	bool isNear(cv::Rect aRect, cv::Rect bRect, double pourcent)
 	{
-		racv::scaleRectangle(aRect, pourcent);
+		racv::scaleRectangleKeepCenter(aRect, pourcent);
 		return racv::isOverlapping(aRect, bRect);
+	}
+
+	/**
+	 * Displays the properties of a rectangle
+	 */
+	void showRectangle(cv::Rect rect)
+	{
+		std::cout << "position: (" << rect.x << " , " << rect.y << "); size: " << rect.height << " x " << rect.width << std::endl;
 	}
 }
