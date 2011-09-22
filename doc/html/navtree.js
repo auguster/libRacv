@@ -36,6 +36,7 @@ var NAVTREE =
       [ "include/person.hpp", "person_8hpp.html", null ],
       [ "include/points.hpp", "points_8hpp.html", null ],
       [ "include/rectangle.hpp", "rectangle_8hpp.html", null ],
+      [ "include/video.hpp", "video_8hpp.html", null ],
       [ "include/colorNormalization/colorNormalization.hpp", "colorNormalization_8hpp.html", null ],
       [ "include/colorNormalization/greyworld.hpp", "greyworld_8hpp.html", null ],
       [ "include/drawing/drawing.hpp", "drawing_8hpp.html", null ],

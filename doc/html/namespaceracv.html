@@ -118,8 +118,11 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#ae771a0c0647bda95b871c7c03f3e254f">isOverlapping</a> (cv::Rect A, cv::Rect B)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a0969d1f68a6d329c79b267c97d26b4d6">merge</a> (std::vector&lt; cv::Rect &gt; &amp;source, std::vector&lt; cv::Rect &gt; &amp;destination)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#ab3db3c9ca2625502c506c3186ee0b7c2">scaleRectangle</a> (cv::Rect &amp;rectangle, double scale)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a3e07603d15574c863c59dcd3fca4c447">scaleRectangleKeepCenter</a> (cv::Rect &amp;rectangle, double scale)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#af3586abe7e88994abdb9097952d8bf7d">fitRectangle</a> (cv::Mat image, cv::Rect &amp;rectangle)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a704323a62fb78c5bdb9351b24cbc7659">isNear</a> (cv::Rect aRect, cv::Rect bRect, double pourcent=1.1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#ae1c1b17fc109075cd5274e98fd4f991f">showRectangle</a> (cv::Rect rect)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceracv.html#a455a2d8ae4d22c802c90e2431ecc4231">frameCounter</a> (cv::VideoCapture &amp;capture)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ab9e35a7aa7b320b6b196d50b705ce1e9"></a><!-- doxytag: member="racv::changeOrigin" ref="ab9e35a7aa7b320b6b196d50b705ce1e9" args="(cv::Point origin, cv::vector&lt; cv::Point2f &gt; &amp;points)" -->
@@ -406,6 +409,24 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
+<a class="anchor" id="a455a2d8ae4d22c802c90e2431ecc4231"></a><!-- doxytag: member="racv::frameCounter" ref="a455a2d8ae4d22c802c90e2431ecc4231" args="(cv::VideoCapture &amp;capture)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int racv::frameCounter </td>
+          <td>(</td>
+          <td class="paramtype">cv::VideoCapture &amp;&#160;</td>
+          <td class="paramname"><em>capture</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>When CV_CAP_PROP_FRAME_COUNT fails to retrieve de number of frames ... </p>
+
+</div>
+</div>
 <a class="anchor" id="acfa4be3cd77eaabaf2f2b05e276fb639"></a><!-- doxytag: member="racv::getChannel" ref="acfa4be3cd77eaabaf2f2b05e276fb639" args="(int pixel, int channel)" -->
 <div class="memitem">
 <div class="memproto">
@@ -637,6 +658,34 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
+<a class="anchor" id="a3e07603d15574c863c59dcd3fca4c447"></a><!-- doxytag: member="racv::scaleRectangleKeepCenter" ref="a3e07603d15574c863c59dcd3fca4c447" args="(cv::Rect &amp;rectangle, double scale)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void racv::scaleRectangleKeepCenter </td>
+          <td>(</td>
+          <td class="paramtype">cv::Rect &amp;&#160;</td>
+          <td class="paramname"><em>rectangle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>this function transforms the rectangle into a scaled version of itself the center of the rectangle remains the same </p>
+
+</div>
+</div>
 <a class="anchor" id="a273c6a1f5cd30dc226bc06cb60f116d5"></a><!-- doxytag: member="racv::showPixelColor" ref="a273c6a1f5cd30dc226bc06cb60f116d5" args="(int pixel)" -->
 <div class="memitem">
 <div class="memproto">
@@ -652,6 +701,24 @@ drawing hpp void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 <p>Displays with std::cout the pixel's RGB values </p>
+
+</div>
+</div>
+<a class="anchor" id="ae1c1b17fc109075cd5274e98fd4f991f"></a><!-- doxytag: member="racv::showRectangle" ref="ae1c1b17fc109075cd5274e98fd4f991f" args="(cv::Rect rect)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void racv::showRectangle </td>
+          <td>(</td>
+          <td class="paramtype">cv::Rect&#160;</td>
+          <td class="paramname"><em>rect</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Displays the properties of a rectangle </p>
 
 </div>
 </div>
@@ -767,7 +834,7 @@ template&lt;class typenombre &gt; </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="namespaceracv.html">racv</a>      </li>
-      <li class="footer">Generated on Mon Sep 19 2011 17:04:27 for libRacv by&#160;
+      <li class="footer">Generated on Thu Sep 22 2011 16:02:18 for libRacv by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

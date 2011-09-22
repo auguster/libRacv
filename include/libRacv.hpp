@@ -18,6 +18,7 @@
 #include <person.hpp>
 #include <rectangle.hpp>
 #include <drawing/drawing.hpp>
+#include <video.hpp>
 
 namespace racv
 {
