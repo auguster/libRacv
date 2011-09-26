@@ -9,7 +9,8 @@ var NAVTREE =
       [ "racv::Pipe", "classracv_1_1Pipe.html", null ],
       [ "racv::Pipe::PipeMsg", "structracv_1_1Pipe_1_1PipeMsg.html", null ],
       [ "racv::Reservoir", "classracv_1_1Reservoir.html", null ],
-      [ "racv::ShowFrames", "classracv_1_1ShowFrames.html", null ]
+      [ "racv::ShowFrames", "classracv_1_1ShowFrames.html", null ],
+      [ "racv::WriteFrames", "classracv_1_1WriteFrames.html", null ]
     ] ],
     [ "Class Index", "classes.html", null ],
     [ "Class Hierarchy", "hierarchy.html", [
@@ -18,7 +19,8 @@ var NAVTREE =
         [ "racv::BackgroundSubstraction", "classracv_1_1BackgroundSubstraction.html", null ],
         [ "racv::BodyDetect", "classracv_1_1BodyDetect.html", null ],
         [ "racv::Gray", "classracv_1_1Gray.html", null ],
-        [ "racv::ShowFrames", "classracv_1_1ShowFrames.html", null ]
+        [ "racv::ShowFrames", "classracv_1_1ShowFrames.html", null ],
+        [ "racv::WriteFrames", "classracv_1_1WriteFrames.html", null ]
       ] ],
       [ "racv::Pipe::PipeMsg", "structracv_1_1Pipe_1_1PipeMsg.html", null ],
       [ "racv::Reservoir", "classracv_1_1Reservoir.html", null ]
@@ -47,7 +49,8 @@ var NAVTREE =
       [ "include/pipes/Pipe.hpp", "Pipe_8hpp.html", null ],
       [ "include/pipes/pipes.hpp", "pipes_8hpp.html", null ],
       [ "include/pipes/Reservoir.hpp", "Reservoir_8hpp.html", null ],
-      [ "include/pipes/ShowFrames.hpp", "ShowFrames_8hpp.html", null ]
+      [ "include/pipes/ShowFrames.hpp", "ShowFrames_8hpp.html", null ],
+      [ "include/pipes/WriteFrames.hpp", "WriteFrames_8hpp.html", null ]
     ] ],
     [ "File Members", "globals.html", null ]
   ] ]
