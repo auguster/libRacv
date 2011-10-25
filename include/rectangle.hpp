@@ -53,6 +53,16 @@ namespace racv
 	 */
 	void showRectangle(cv::Rect rect);
 
+	/*
+	 * Converts a cv::Mat(n, 4, CV_32F) into a vector of cv::Rect
+	 */
+	std::vector<cv::Rect > *mat2VectRect(cv::Mat mat);
+
+	/*
+	 * Converts a vector of cv::Rect info a cv::Mat(n, 4, CV_32F)
+	 */
+	cv::Mat *vectRect2Mat(std::vector<cv::Rect > vec);
+
 } // namespace racv
 
 #endif /* RECTANGLE_HPP_ */

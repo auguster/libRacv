@@ -19,7 +19,7 @@ namespace racv
 	ShowFrames::~ShowFrames()
 	{}
 
-	void ShowFrames::processingSingleFrame(cv::Mat *image)
+	void ShowFrames::processingSingleFrame(cv::Mat *image, cv::Mat*)
 	{
 		cv::imshow(this->name.data(), *image);
 	}

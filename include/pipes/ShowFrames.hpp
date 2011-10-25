@@ -21,7 +21,7 @@ namespace racv
 		virtual ~ShowFrames();
 	private:
 		std::string name;
-		void processingSingleFrame(cv::Mat *image);
+		void processingSingleFrame(cv::Mat *image, cv::Mat *data);
 	};
 }
 

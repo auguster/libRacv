@@ -59,15 +59,16 @@ namespace racv
 
 	Pipe::PipeMsg Pipe::processing(Pipe::PipeMsg msg)
 	{
-		for (std::vector<cv::Mat *>::iterator image = msg.data->begin(); image < msg.data->end(); image++)
+		std::vector<cv::Mat *>::iterator data = msg.data->begin();
+		for (std::vector<cv::Mat *>::iterator image = msg.imgs->begin(); image < msg.imgs->end(); image++, data++)
 		{
-			this->processingSingleFrame(*image);
+			this->processingSingleFrame(*image, *data);
 		}
 
 		return msg;
 	}
 
-	void Pipe::processingSingleFrame(cv::Mat *image)
+	void Pipe::processingSingleFrame(cv::Mat *image, cv::Mat *data)
 	{
 	}
 }

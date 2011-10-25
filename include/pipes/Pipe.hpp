@@ -20,7 +20,8 @@ namespace racv
 		virtual ~Pipe();
 		typedef struct
 		{
-			std::vector<cv::Mat *> *data;
+			std::vector<cv::Mat *> *imgs;
+			std::vector<cv::Mat *> *data; //CV_32F matrices
 			std::vector<time_t> *log;
 		} PipeMsg;
 		Pipe* plugPipe(Pipe* next);
@@ -39,7 +40,7 @@ namespace racv
 		 * Process to apply to each piece of data
 		 * Note: when processing() is not overloaded it automatically call processingSingleFrame with each piece of data
 		 */
-		virtual void processingSingleFrame(cv::Mat *image);
+		virtual void processingSingleFrame(cv::Mat *image, cv::Mat *data);
 	};
 }
 

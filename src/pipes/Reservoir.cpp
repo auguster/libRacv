@@ -62,10 +62,12 @@ namespace racv
 			this->capture->retrieve(*frame);
 
 			Pipe::PipeMsg msg;
+			msg.imgs = new std::vector<cv::Mat *>();
 			msg.data = new std::vector<cv::Mat *>();
 			msg.log = new std::vector<time_t>();
 
-			msg.data->push_back(frame);
+			msg.imgs->push_back(frame);
+			msg.data->push_back(NULL);
 			msg.log->push_back(time(NULL));
 
 			Pipe::PipeMsg reponse = this->next->sendPipe(msg);
