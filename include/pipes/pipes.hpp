@@ -15,5 +15,6 @@
 #include "ShowFrames.hpp"
 #include "BodyDetect.hpp"
 #include "WriteFrames.hpp"
+#include "WriteVideo.hpp"
 
 #endif /* PIPES_HPP_ */

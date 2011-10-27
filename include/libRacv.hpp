@@ -15,7 +15,6 @@
 #include <color.hpp>
 #include <matrix.hpp>
 #include <pipes/pipes.hpp>
-#include <person.hpp>
 #include <rectangle.hpp>
 #include <drawing/drawing.hpp>
 #include <video.hpp>

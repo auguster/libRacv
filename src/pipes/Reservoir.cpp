@@ -86,10 +86,10 @@ namespace racv
 
 	cv::Size Reservoir::frameSize()
 	{
-		cv::Mat *frame = new cv::Mat();
-		this->capture->retrieve(*frame);
-		cv::Size size(frame->cols, frame->rows);
-		delete frame;
+		cv::Mat frame;
+		*this->capture >> frame;
+		cv::Size size(frame.cols, frame.rows);
+		this->capture->set(CV_CAP_PROP_POS_FRAMES, this->capture->get(CV_CAP_PROP_POS_FRAMES)-1);
 		return size;
 	}
 
