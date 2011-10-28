@@ -32,7 +32,7 @@ namespace racv
 		Pipe *next;
 
 		/**
-		 * Process to apply to all the data coming through this pipe
+		 * Process to apply to all the data coming forward through this pipe
 		 */
 		virtual Pipe::PipeMsg processing(Pipe::PipeMsg msg);
 
@@ -41,6 +41,11 @@ namespace racv
 		 * Note: when processing() is not overloaded it automatically call processingSingleFrame with each piece of data
 		 */
 		virtual void processingSingleFrame(cv::Mat *image, cv::Mat *data);
+
+		/**
+		 * Process to apply to all the data coming backward through this pipe
+		*/
+		virtual Pipe::PipeMsg postprocessing(Pipe::PipeMsg msg);
 	};
 }
 

@@ -40,11 +40,11 @@ namespace racv
 		temp.log->push_back(time(NULL));
 		if (this->next) //Forwards only if the end of the pipe has not been reached
 		{
-			return this->next->sendPipe(temp);
+			return this->postprocessing(this->next->sendPipe(temp));
 		}
 		else
 		{
-			return temp;
+			return this->postprocessing(temp);
 		}
 	}
 
@@ -70,5 +70,10 @@ namespace racv
 
 	void Pipe::processingSingleFrame(cv::Mat *image, cv::Mat *data)
 	{
+	}
+
+	Pipe::PipeMsg Pipe::postprocessing(Pipe::PipeMsg msg)
+	{
+		return msg;
 	}
 }

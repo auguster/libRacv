@@ -8,13 +8,17 @@
 #ifndef PIPES_HPP_
 #define PIPES_HPP_
 
-#include "BackgroundSubstraction.hpp"
-#include "Gray.hpp"
 #include "Pipe.hpp"
 #include "Reservoir.hpp"
 #include "ShowFrames.hpp"
-#include "BodyDetect.hpp"
+#include "Gray.hpp"
 #include "WriteFrames.hpp"
 #include "WriteVideo.hpp"
+#include "Detector.hpp"
+#include "DrawRectangles.hpp"
+#include "DataSaviour.hpp"
+#include "ExtractRectangles.hpp"
+#include "SwitchPipe.hpp"
+#include "Track.hpp"
 
 #endif /* PIPES_HPP_ */

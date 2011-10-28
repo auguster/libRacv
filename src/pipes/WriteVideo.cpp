@@ -5,7 +5,7 @@
  *      Author: remi
  */
 
-#include "../../include/pipes/WriteVideo.hpp"
+#include <pipes/WriteVideo.hpp>
 
 namespace racv {
 
