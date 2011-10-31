@@ -20,5 +20,6 @@
 #include "ExtractRectangles.hpp"
 #include "SwitchPipe.hpp"
 #include "Track.hpp"
+#include "DebugPipe.hpp"
 
 #endif /* PIPES_HPP_ */

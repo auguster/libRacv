@@ -15,7 +15,6 @@ namespace racv {
 class SwitchPipe: public racv::Pipe {
 private:
 	Pipe *alternative;
-	std::vector<cv::Mat *> *data;
 	Pipe::PipeMsg postprocessing(Pipe::PipeMsg msg);
 public:
 	SwitchPipe();

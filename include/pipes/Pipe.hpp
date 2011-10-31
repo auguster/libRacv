@@ -25,7 +25,7 @@ namespace racv
 			std::vector<time_t> *log;
 		} PipeMsg;
 		Pipe* plugPipe(Pipe* next);
-		Pipe::PipeMsg sendPipe(Pipe::PipeMsg msg);
+		virtual Pipe::PipeMsg sendPipe(Pipe::PipeMsg msg);
 		static void showLogs(Pipe::PipeMsg msg);
 
 	protected:

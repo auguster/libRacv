@@ -1,0 +1,27 @@
+/*
+ * DebugPipe.hpp
+ *
+ *  Created on: 31 oct. 2011
+ *      Author: foloex
+ */
+
+#ifndef DEBUGPIPE_HPP_
+#define DEBUGPIPE_HPP_
+
+#include "Pipe.hpp"
+
+#include <string>
+
+namespace racv {
+
+class DebugPipe: public racv::Pipe {
+private:
+	Pipe::PipeMsg processing(Pipe::PipeMsg msg);
+	std::string message;
+public:
+	DebugPipe(std::string message);
+	virtual ~DebugPipe();
+};
+
+} /* namespace racv */
+#endif /* DEBUGPIPE_HPP_ */

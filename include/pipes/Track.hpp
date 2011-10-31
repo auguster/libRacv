@@ -14,13 +14,11 @@ namespace racv {
 
 class Track: public racv::Pipe {
 private:
-	void processingSingleFrame(cv::Mat *image, cv::Mat *data);
-	cv::Mat *image;
-	cv::Rect *ROI;
+	Pipe::PipeMsg processing(Pipe::PipeMsg msg);
+	std::vector<cv::Mat *> savedImgs;
+	std::vector<cv::Mat *> savedData;
 public:
-	Track(cv::Mat *image, cv::Rect *toTrack);
-	cv::Mat *getImage();
-	cv::Rect *getROI();
+	Track();
 	virtual ~Track();
 };
 

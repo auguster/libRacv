@@ -26,9 +26,6 @@ Detector::~Detector() {
 }
 
 Pipe::PipeMsg Detector::processing(Pipe::PipeMsg msg) {
-	if (!(*msg.data)[0])
-		(*msg.data)[0] = new cv::Mat(0, 4, CV_32F);
-
 	for (std::vector<cv::Mat *>::iterator image = msg.imgs->begin();
 			image < msg.imgs->end(); image++) {
 		racv::smartDetect(*this->classifier, **image, detectList);
@@ -39,7 +36,8 @@ Pipe::PipeMsg Detector::processing(Pipe::PipeMsg msg) {
 			line->at<float>(0, 1) = rect->y;
 			line->at<float>(0, 2) = rect->height;
 			line->at<float>(0, 3) = rect->width;
-
+			if (!(*msg.data)[0])
+					(*msg.data)[0] = new cv::Mat(0, 4, CV_32F);
 			(*msg.data)[0]->push_back(*line);
 		}
 	}

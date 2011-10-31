@@ -24,13 +24,16 @@ DrawRectangles::~DrawRectangles() {
 	// TODO Auto-generated destructor stub
 }
 
-void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data)
-{
-	std::vector<cv::Rect > *rects = racv::mat2VectRect(*data);
+void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data) {
+	if (data) {
+		std::vector<cv::Rect> *rects = racv::mat2VectRect(*data);
 
-	for (std::vector<cv::Rect >::iterator rect = rects->begin(); rect < rects->end(); rect++)
-	{
-		cv::rectangle(*image, *rect, cv::Scalar(0, 255, 0), 1, 8, 0);
+		for (std::vector<cv::Rect>::iterator rect = rects->begin();
+				rect < rects->end(); rect++) {
+			std::cout << ">> ";
+			racv::showRectangle(*rect);
+			cv::rectangle(*image, *rect, cv::Scalar(0, 255, 0), 1, 8, 0);
+		}
 	}
 }
 

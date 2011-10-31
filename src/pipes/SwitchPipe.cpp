@@ -7,6 +7,8 @@
 
 #include <pipes/SwitchPipe.hpp>
 
+#include <iostream>
+
 namespace racv {
 
 SwitchPipe::SwitchPipe() {
@@ -25,29 +27,32 @@ Pipe::PipeMsg SwitchPipe::sendPipe(Pipe::PipeMsg msg) {
 	if (!this->next)
 		return msg;
 
-	Pipe::PipeMsg normMsg;
-	if (this->next && this->data && this->data->size() > 0)
+	if (this->next)
 	{
-		normMsg = this->next->sendPipe(msg);
-		if (!normMsg.data || (normMsg.data && normMsg.data->size() == 0))
+		Pipe::PipeMsg normMsg = this->next->sendPipe(msg);
+
+		if (!(*normMsg.data)[0])
 		{
 			if (this->alternative)
 			{
 				normMsg = this->alternative->sendPipe(msg);
 			}
 		}
-	}
 
-	return this->postprocessing(normMsg);
+		return this->postprocessing(normMsg);
+	}
+	else
+	{
+		return msg;
+	}
 }
 
 Pipe::PipeMsg SwitchPipe::postprocessing(Pipe::PipeMsg msg)
 {
-	if (this->data->size() == 0)
+	if ((*msg.data)[0])
 	{
-		this->sendPipe(msg);
+		this->next->sendPipe(msg);
 	}
-	*this->data = *msg.data;
 	return msg;
 }
 
