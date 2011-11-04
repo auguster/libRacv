@@ -18,6 +18,7 @@ class DebugPipe: public racv::Pipe {
 private:
 	Pipe::PipeMsg processing(Pipe::PipeMsg msg);
 	std::string message;
+	Pipe::PipeMsg postprocessing(Pipe::PipeMsg msg);
 public:
 	DebugPipe(std::string message);
 	virtual ~DebugPipe();

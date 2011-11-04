@@ -63,6 +63,16 @@ namespace racv
 	 */
 	cv::Mat *vectRect2Mat(std::vector<cv::Rect > vec);
 
+	/*
+	 * Converts a cv::Rect into a single line cv::Mat(1, 4, CV_32F)
+	 */
+	cv::Mat *rect2mat(cv::Rect rect);
+
+	/*
+	 * Converts the first line of a cv::Mat(n, 4, CV_32F) into a cv::Rect
+	 */
+	cv::Rect *mat2rect(cv::Mat mat);
+
 } // namespace racv
 
 #endif /* RECTANGLE_HPP_ */

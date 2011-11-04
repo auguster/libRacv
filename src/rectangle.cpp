@@ -98,4 +98,23 @@ cv::Mat *VectRect2mat(std::vector<cv::Rect> vec) {
 
 	return mat;
 }
+
+cv::Mat *rect2mat(cv::Rect rect) {
+	cv::Mat *mat = new cv::Mat(1, 4, CV_32F);
+	mat->at<float>(0, 0) = rect.x;
+	mat->at<float>(0, 1) = rect.y;
+	mat->at<float>(0, 2) = rect.height;
+	mat->at<float>(0, 3) = rect.width;
+	return mat;
+}
+
+cv::Rect *mat2rect(cv::Mat mat)
+{
+	cv::Rect *rect = new cv::Rect();
+	rect->x = mat.at<float>(0, 0);
+	rect->x = mat.at<float>(0, 1);
+	rect->x = mat.at<float>(0, 2);
+	rect->x = mat.at<float>(0, 3);
+	return rect;
+}
 }

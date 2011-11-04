@@ -16,12 +16,9 @@
 namespace racv {
 
 DrawRectangles::DrawRectangles() {
-	// TODO Auto-generated constructor stub
-
 }
 
 DrawRectangles::~DrawRectangles() {
-	// TODO Auto-generated destructor stub
 }
 
 void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data) {
@@ -30,8 +27,6 @@ void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data) {
 
 		for (std::vector<cv::Rect>::iterator rect = rects->begin();
 				rect < rects->end(); rect++) {
-			std::cout << ">> ";
-			racv::showRectangle(*rect);
 			cv::rectangle(*image, *rect, cv::Scalar(0, 255, 0), 1, 8, 0);
 		}
 	}

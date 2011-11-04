@@ -20,8 +20,14 @@ DebugPipe::~DebugPipe() {
 
 Pipe::PipeMsg DebugPipe::processing(Pipe::PipeMsg msg)
 {
-	std::cout << this->message << std::endl;
+	std::cout << ">> " << this->message << std::endl;
 	return msg;
+}
+
+Pipe::PipeMsg DebugPipe::postprocessing(Pipe::PipeMsg msg)
+{
+    std::cout << "<< " << this->message << std::endl;
+    return msg;
 }
 
 } /* namespace racv */

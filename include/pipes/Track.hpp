@@ -16,7 +16,8 @@ class Track: public racv::Pipe {
 private:
 	Pipe::PipeMsg processing(Pipe::PipeMsg msg);
 	std::vector<cv::Mat *> savedImgs;
-	std::vector<cv::Mat *> savedData;
+	std::vector<std::vector<cv::Point2f> > corners;
+	bool secondChance;
 public:
 	Track();
 	virtual ~Track();
