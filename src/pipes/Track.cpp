@@ -64,7 +64,6 @@ namespace racv
 
       cv::Mat *image = (*msg.imgs)[i];
       cv::Mat *oldImage = this->savedImgs[i];
-      cv::imshow("oldImage", *oldImage);
 
       for (std::vector<std::vector<cv::Point2f> >::iterator corners = this->corners.begin();
           corners < this->corners.end(); corners++)
