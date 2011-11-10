@@ -15,7 +15,9 @@ namespace racv {
 class DrawRectangles: public racv::Pipe {
 private:
 	void processingSingleFrame(cv::Mat *image, cv::Mat *data);
+	bool debug;
 public:
+	DrawRectangles(bool value = false);
 	DrawRectangles();
 	virtual ~DrawRectangles();
 };

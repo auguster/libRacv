@@ -13,20 +13,36 @@
 
 #include <iostream>
 
-namespace racv {
+namespace racv
+{
 
-DrawRectangles::DrawRectangles() {
+DrawRectangles::DrawRectangles() :
+		debug(false)
+{
 }
 
-DrawRectangles::~DrawRectangles() {
+DrawRectangles::DrawRectangles(bool value) :
+		debug(value)
+{
 }
 
-void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data) {
-	if (data) {
+DrawRectangles::~DrawRectangles()
+{
+}
+
+void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data)
+{
+	if (data)
+	{
 		std::vector<cv::Rect> *rects = racv::mat2VectRect(*data);
 
 		for (std::vector<cv::Rect>::iterator rect = rects->begin();
-				rect < rects->end(); rect++) {
+				rect < rects->end(); rect++)
+		{
+			if (this->debug)
+			{
+				racv::showRectangle(*rect);
+			}
 			cv::rectangle(*image, *rect, cv::Scalar(0, 255, 0), 1, 8, 0);
 		}
 	}
