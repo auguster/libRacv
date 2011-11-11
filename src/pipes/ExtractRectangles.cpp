@@ -35,7 +35,7 @@ namespace racv
                 std::vector<cv::Rect> *rects = racv::mat2VectRect(*(*msg.data)[image]);
                 for (std::vector<cv::Rect>::iterator rect = rects->begin(); rect < rects->end(); rect++)
                 {
-                	if (rect->width <= 0 || rect->height <= 0)
+                	if (rect->width < 0 || rect->height < 0)
                 		continue;
                     cv::Mat *extract = new cv::Mat(rect->height, rect->width, (*(*msg.imgs)[image]).type());
                     *extract = (*(*msg.imgs)[image])(*rect);
