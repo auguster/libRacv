@@ -70,7 +70,7 @@ namespace racv
 			msg.data->push_back(NULL);
 			msg.log->push_back(time(NULL));
 
-			Pipe::PipeMsg reponse = this->next->sendPipe(msg);
+			this->next->sendPipe(msg);
 
 			key = cv::waitKey(2);
 			if (key == 27)
