@@ -17,7 +17,7 @@ namespace racv
 	{}
 
 	WriteFrames::WriteFrames(std::string prefix):
-				prefix(prefix), frameCounter(0)
+				frameCounter(0), prefix(prefix)
 	{}
 
 	WriteFrames::~WriteFrames()
