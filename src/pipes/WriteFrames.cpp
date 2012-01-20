@@ -9,6 +9,8 @@
 
 #include <opencv2/highgui/highgui.hpp>
 
+#include <iostream>
+
 namespace racv
 {
 
@@ -23,7 +25,7 @@ namespace racv
 	WriteFrames::~WriteFrames()
 	{}
 
-	void WriteFrames::processingSingleFrame(cv::Mat *image)
+	void WriteFrames::processingSingleFrame(cv::Mat *image, cv::Mat *data)
 	{
 		std::stringstream ss;
 		ss << this->prefix << this->frameCounter++ << ".png";

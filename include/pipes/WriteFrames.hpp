@@ -29,7 +29,7 @@ namespace racv
 		 */
 		WriteFrames(std::string prefix);
 		virtual ~WriteFrames();
-		void processingSingleFrame(cv::Mat *image);
+		void processingSingleFrame(cv::Mat *image, cv::Mat *data);
 	};
 
 }

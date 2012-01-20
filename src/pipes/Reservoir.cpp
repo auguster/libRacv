@@ -72,7 +72,7 @@ namespace racv
 
 			this->next->sendPipe(msg);
 
-			key = cv::waitKey(2);
+			key = cv::waitKey(20);
 			if (key == 27)
 			{
 				std::cerr << "Esc Key Pressed" << std::endl;
