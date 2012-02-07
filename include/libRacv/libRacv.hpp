@@ -9,16 +9,16 @@
 #ifndef LIBREMICV_HPP_
 #define LIBREMICV_HPP_
 
-#include <colorNormalization/colorNormalization.hpp>
-#include <detection.hpp>
-#include <points.hpp>
-#include <color.hpp>
-#include <matrix.hpp>
-#include <pipes/pipes.hpp>
-#include <person.hpp>
-#include <rectangle.hpp>
-#include <drawing/drawing.hpp>
-#include <video.hpp>
+#include <libRacv/pipes/pipes.hpp>
+
+#include <libRacv/tools/colorNormalization/colorNormalization.hpp>
+#include <libRacv/tools/detection.hpp>
+#include <libRacv/tools/points.hpp>
+#include <libRacv/tools/color.hpp>
+#include <libRacv/tools/matrix.hpp>
+#include <libRacv/tools/rectangle.hpp>
+#include <libRacv/tools/drawing/drawing.hpp>
+#include <libRacv/tools/video.hpp>
 
 namespace racv
 {

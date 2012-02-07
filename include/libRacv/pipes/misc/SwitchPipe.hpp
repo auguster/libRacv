@@ -1,0 +1,26 @@
+/*
+ * SwitchPipe.hpp
+ *
+ *  Created on: 28 oct. 2011
+ *      Author: foloex
+ */
+
+#ifndef SWITCHPIPE_HPP_
+#define SWITCHPIPE_HPP_
+
+#include "../core/Pipe.hpp"
+
+namespace racv {
+
+class SwitchPipe: public racv::Pipe {
+private:
+	Pipe *alternative;
+public:
+	SwitchPipe();
+	Pipe *plugAlternativePipe(Pipe *next);
+	Pipe::PipeMsg sendPipe(Pipe::PipeMsg msg);
+	virtual ~SwitchPipe();
+};
+
+} /* namespace racv */
+#endif /* SWITCHPIPE_HPP_ */
