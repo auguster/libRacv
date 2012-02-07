@@ -28,7 +28,7 @@ namespace racv
 	void WriteFrames::processingSingleFrame(cv::Mat *image, cv::Mat *data)
 	{
 		std::stringstream ss;
-		ss << this->prefix << this->frameCounter++ << ".png";
+		ss << this->prefix << this->frameCounter++ << ".pgm";
 		cv::imwrite(ss.str(), *image);
 	}
 
