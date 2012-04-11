@@ -18,9 +18,13 @@
 
 namespace racv
 {
+	class Pipe; //forward reference (for mutual inclusion)
+
 	class Reservoir
 	{
 	public:
+		Reservoir();
+
 		/**
 		 * Ouverture du flux de donnée
 		 * filename: nom du fichier à ouvrir (si vide on passe sur la caméra)

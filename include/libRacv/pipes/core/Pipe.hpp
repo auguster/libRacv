@@ -13,10 +13,17 @@
 #include <vector>
 #include <opencv2/core/core.hpp>
 
+#include "Reservoir.hpp"
+
 namespace racv
 {
+	class Reservoir; //forward reference (for mutual inclusion)
+
 	class Pipe
 	{
+	private:
+		Reservoir *reservoir;
+
 	public:
 		Pipe();
 		virtual ~Pipe();
@@ -27,27 +34,42 @@ namespace racv
 			std::vector<time_t> *log;
 		} PipeMsg;
 		Pipe* plugPipe(Pipe* next);
+
 		virtual Pipe::PipeMsg sendPipe(Pipe::PipeMsg msg);
+
 		static void showLogs(Pipe::PipeMsg msg);
+
+		/**
+		 * Send the data to the next Pipe (Threaded !)
+		 */
+		//virtual void sendPipe(cv::Mat *image, cv::Mat *data);
+
+		/**
+		 * Sets a pointer to the Reservoir
+		 * If a pipe is plugged the pointer gets propagated
+		 */
+		virtual void *setReservoir(Reservoir *reservoir);
 
 	protected:
 		Pipe *next;
 
 		/**
 		 * Process to apply to all the data coming forward through this pipe
+		 * Note: overloading this method avoids calling processingSingleFrame
 		 */
 		virtual Pipe::PipeMsg processing(Pipe::PipeMsg msg);
 
 		/**
 		 * Process to apply to each piece of data
-		 * Note: when processing() is not overloaded it automatically call processingSingleFrame with each piece of data
+		 * Note: when processing() is not overloaded it automatically calls processingSingleFrame with each piece of data
 		 */
 		virtual void processingSingleFrame(cv::Mat *image, cv::Mat *data);
 
 		/**
 		 * Process to apply to all the data coming backward through this pipe
-		*/
+		 */
 		virtual Pipe::PipeMsg postprocessing(Pipe::PipeMsg msg);
+
 	};
 }
 

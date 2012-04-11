@@ -15,11 +15,19 @@ namespace racv
 	Pipe::Pipe()
 	{
 		this->next = NULL;
+		this->reservoir = NULL;
 	}
 
 	Pipe::~Pipe()
 	{
 
+	}
+
+	void *Pipe::setReservoir(Reservoir *reservoir)
+	{
+		this->reservoir = reservoir;
+		if (this->next)
+			this->next->setReservoir(reservoir);
 	}
 
 	Pipe *Pipe::plugPipe(Pipe *next)
@@ -32,6 +40,7 @@ namespace racv
 		else
 		{
 			this->next = next;
+			this->next->setReservoir(this->reservoir);
 		}
 		return next;
 	}
