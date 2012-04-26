@@ -105,7 +105,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1WriteFrames.html#a2aeb5d29a87f73dbfa4e91bb2b526a60">WriteFrames</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1WriteFrames.html#a75b0f687bf6369c5b6f6f6c8d0ef0813">WriteFrames</a> (std::string <a class="el" href="classracv_1_1WriteFrames.html#aa9762702b3189105fa65ce49be2a0519">prefix</a>)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1WriteFrames.html#a22248208837b976e6d7bb0d0d246c1f3">~WriteFrames</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1WriteFrames.html#a01d61990de572b01db4ac2a56bb64f5e">processingSingleFrame</a> (cv::Mat *image)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1WriteFrames.html#a70863521894991f294dce66c770a51c5">processingSingleFrame</a> (cv::Mat *image, cv::Mat *data)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1WriteFrames.html#a8d36278cbc8d4d95ae91020bb26d6e0f">frameCounter</a></td></tr>
@@ -169,7 +169,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a01d61990de572b01db4ac2a56bb64f5e"></a><!-- doxytag: member="racv::WriteFrames::processingSingleFrame" ref="a01d61990de572b01db4ac2a56bb64f5e" args="(cv::Mat *image)" -->
+<a class="anchor" id="a70863521894991f294dce66c770a51c5"></a><!-- doxytag: member="racv::WriteFrames::processingSingleFrame" ref="a70863521894991f294dce66c770a51c5" args="(cv::Mat *image, cv::Mat *data)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -177,15 +177,25 @@ Private Attributes</h2></td></tr>
           <td class="memname">void racv::WriteFrames::processingSingleFrame </td>
           <td>(</td>
           <td class="paramtype">cv::Mat *&#160;</td>
-          <td class="paramname"><em>image</em></td><td>)</td>
-          <td><code> [virtual]</code></td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Mat *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Process to apply to each piece of data Note: when <a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing()</a> is not overloaded it automatically call processingSingleFrame with each piece of data </p>
+<p>Process to apply to each piece of data Note: when <a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing()</a> is not overloaded it automatically calls processingSingleFrame with each piece of data </p>
 
-<p>Reimplemented from <a class="el" href="classracv_1_1Pipe.html#a4ce25201af758088e30f48d5f7e9d64d">racv::Pipe</a>.</p>
+<p>Reimplemented from <a class="el" href="classracv_1_1Pipe.html#afe4ee080d7b61ac438889b9e0e096728">racv::Pipe</a>.</p>
 
 </div>
 </div>
@@ -217,7 +227,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/pipes/<a class="el" href="WriteFrames_8hpp.html">WriteFrames.hpp</a></li>
+<li>include/libRacv/pipes/misc/<a class="el" href="WriteFrames_8hpp.html">WriteFrames.hpp</a></li>
 </ul>
 </div>
 </div>
@@ -225,7 +235,7 @@ Private Attributes</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="namespaceracv.html">racv</a>      </li>
       <li class="navelem"><a class="el" href="classracv_1_1WriteFrames.html">WriteFrames</a>      </li>
-      <li class="footer">Generated on Mon Sep 26 2011 13:53:37 for libRacv by&#160;
+      <li class="footer">Generated on Thu Apr 26 2012 16:53:14 for libRacv by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

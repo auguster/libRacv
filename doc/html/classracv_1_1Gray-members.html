@@ -88,9 +88,12 @@ This is the complete list of members for <a class="el" href="classracv_1_1Gray.h
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a8dc6fcdbc5a17ffac8230191859b2300">next</a></td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a81f6b002d51c06e5af7a91bc5282a38b">Pipe</a>()</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a28cb236a593bb9c68fe7d2b33e9633e1">plugPipe</a>(Pipe *next)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#af489adbe987b31a369815c8d050ea17d">postprocessing</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [protected, virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [protected, virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classracv_1_1Gray.html#a1331eda369e6a7ca61ce217dc134a7a5">processingSingleFrame</a>(cv::Mat *image)</td><td><a class="el" href="classracv_1_1Gray.html">racv::Gray</a></td><td><code> [private, virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#aa78593bfc9889c8dd335d1575aa282ca">sendPipe</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1Gray.html#a1331eda369e6a7ca61ce217dc134a7a5">processingSingleFrame</a>(cv::Mat *image)</td><td><a class="el" href="classracv_1_1Gray.html">racv::Gray</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#afe4ee080d7b61ac438889b9e0e096728">racv::Pipe::processingSingleFrame</a>(cv::Mat *image, cv::Mat *data)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [protected, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a97a9d1602866860ce2f4099e6bcc14b1">sendPipe</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#af1ca445d648cbde7df95b3835a989071">setReservoir</a>(Reservoir *reservoir)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a90006e3f8b3e6158a7c66e0cbb940730">showLogs</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Gray.html#aa88255f56a9578bdf074ebb31a7e9257">~Gray</a>()</td><td><a class="el" href="classracv_1_1Gray.html">racv::Gray</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a48fa6c3dee8aecf180f7b92b95c28986">~Pipe</a>()</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [virtual]</code></td></tr>
@@ -98,7 +101,7 @@ This is the complete list of members for <a class="el" href="classracv_1_1Gray.h
 </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="footer">Generated on Mon Sep 26 2011 13:53:37 for libRacv by&#160;
+      <li class="footer">Generated on Thu Apr 26 2012 16:53:14 for libRacv by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

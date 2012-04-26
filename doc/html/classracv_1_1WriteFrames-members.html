@@ -88,10 +88,12 @@ This is the complete list of members for <a class="el" href="classracv_1_1WriteF
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a8dc6fcdbc5a17ffac8230191859b2300">next</a></td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a81f6b002d51c06e5af7a91bc5282a38b">Pipe</a>()</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a28cb236a593bb9c68fe7d2b33e9633e1">plugPipe</a>(Pipe *next)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#af489adbe987b31a369815c8d050ea17d">postprocessing</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [protected, virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1WriteFrames.html#aa9762702b3189105fa65ce49be2a0519">prefix</a></td><td><a class="el" href="classracv_1_1WriteFrames.html">racv::WriteFrames</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [protected, virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classracv_1_1WriteFrames.html#a01d61990de572b01db4ac2a56bb64f5e">processingSingleFrame</a>(cv::Mat *image)</td><td><a class="el" href="classracv_1_1WriteFrames.html">racv::WriteFrames</a></td><td><code> [virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#aa78593bfc9889c8dd335d1575aa282ca">sendPipe</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1WriteFrames.html#a70863521894991f294dce66c770a51c5">processingSingleFrame</a>(cv::Mat *image, cv::Mat *data)</td><td><a class="el" href="classracv_1_1WriteFrames.html">racv::WriteFrames</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a97a9d1602866860ce2f4099e6bcc14b1">sendPipe</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#af1ca445d648cbde7df95b3835a989071">setReservoir</a>(Reservoir *reservoir)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1Pipe.html#a90006e3f8b3e6158a7c66e0cbb940730">showLogs</a>(Pipe::PipeMsg msg)</td><td><a class="el" href="classracv_1_1Pipe.html">racv::Pipe</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1WriteFrames.html#a2aeb5d29a87f73dbfa4e91bb2b526a60">WriteFrames</a>()</td><td><a class="el" href="classracv_1_1WriteFrames.html">racv::WriteFrames</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classracv_1_1WriteFrames.html#a75b0f687bf6369c5b6f6f6c8d0ef0813">WriteFrames</a>(std::string prefix)</td><td><a class="el" href="classracv_1_1WriteFrames.html">racv::WriteFrames</a></td><td></td></tr>
@@ -101,7 +103,7 @@ This is the complete list of members for <a class="el" href="classracv_1_1WriteF
 </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="footer">Generated on Mon Sep 26 2011 13:53:37 for libRacv by&#160;
+      <li class="footer">Generated on Thu Apr 26 2012 16:53:14 for libRacv by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

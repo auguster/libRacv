@@ -107,7 +107,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1ShowFrames.html#a6561ec4983921034bce7a0e612a5c740">~ShowFrames</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1ShowFrames.html#a549221ca6e9608b2edd96015df863f39">processingSingleFrame</a> (cv::Mat *image)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1ShowFrames.html#a2b8513a7cd9d48d9a2d80d3006d81028">processingSingleFrame</a> (cv::Mat *image, cv::Mat *data)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1ShowFrames.html#ac3a740240a2a10abf9c104786a484938">name</a></td></tr>
@@ -147,7 +147,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a549221ca6e9608b2edd96015df863f39"></a><!-- doxytag: member="racv::ShowFrames::processingSingleFrame" ref="a549221ca6e9608b2edd96015df863f39" args="(cv::Mat *image)" -->
+<a class="anchor" id="a2b8513a7cd9d48d9a2d80d3006d81028"></a><!-- doxytag: member="racv::ShowFrames::processingSingleFrame" ref="a2b8513a7cd9d48d9a2d80d3006d81028" args="(cv::Mat *image, cv::Mat *data)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -155,15 +155,25 @@ Private Attributes</h2></td></tr>
           <td class="memname">void racv::ShowFrames::processingSingleFrame </td>
           <td>(</td>
           <td class="paramtype">cv::Mat *&#160;</td>
-          <td class="paramname"><em>image</em></td><td>)</td>
-          <td><code> [private, virtual]</code></td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Mat *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [private, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Process to apply to each piece of data Note: when <a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing()</a> is not overloaded it automatically call processingSingleFrame with each piece of data </p>
+<p>Process to apply to each piece of data Note: when <a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing()</a> is not overloaded it automatically calls processingSingleFrame with each piece of data </p>
 
-<p>Reimplemented from <a class="el" href="classracv_1_1Pipe.html#a4ce25201af758088e30f48d5f7e9d64d">racv::Pipe</a>.</p>
+<p>Reimplemented from <a class="el" href="classracv_1_1Pipe.html#afe4ee080d7b61ac438889b9e0e096728">racv::Pipe</a>.</p>
 
 </div>
 </div>
@@ -182,7 +192,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/pipes/<a class="el" href="ShowFrames_8hpp.html">ShowFrames.hpp</a></li>
+<li>include/libRacv/pipes/misc/<a class="el" href="ShowFrames_8hpp.html">ShowFrames.hpp</a></li>
 </ul>
 </div>
 </div>
@@ -190,7 +200,7 @@ Private Attributes</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="namespaceracv.html">racv</a>      </li>
       <li class="navelem"><a class="el" href="classracv_1_1ShowFrames.html">ShowFrames</a>      </li>
-      <li class="footer">Generated on Mon Sep 26 2011 13:53:37 for libRacv by&#160;
+      <li class="footer">Generated on Thu Apr 26 2012 16:53:14 for libRacv by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

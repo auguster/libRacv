@@ -84,7 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <h1>racv::Pipe Class Reference</h1>  </div>
 </div>
@@ -97,11 +98,17 @@ Inheritance diagram for racv::Pipe:</div>
  <div class="center">
   <img src="classracv_1_1Pipe.png" usemap="#racv::Pipe_map" alt=""/>
   <map id="racv::Pipe_map" name="racv::Pipe_map">
-<area href="classracv_1_1BackgroundSubstraction.html" alt="racv::BackgroundSubstraction" shape="rect" coords="0,56,182,80"/>
-<area href="classracv_1_1BodyDetect.html" alt="racv::BodyDetect" shape="rect" coords="192,56,374,80"/>
-<area href="classracv_1_1Gray.html" alt="racv::Gray" shape="rect" coords="384,56,566,80"/>
-<area href="classracv_1_1ShowFrames.html" alt="racv::ShowFrames" shape="rect" coords="576,56,758,80"/>
-<area href="classracv_1_1WriteFrames.html" alt="racv::WriteFrames" shape="rect" coords="768,56,950,80"/>
+<area href="classracv_1_1DataSaviour.html" alt="racv::DataSaviour" shape="rect" coords="155,56,300,80"/>
+<area href="classracv_1_1DebugPipe.html" alt="racv::DebugPipe" shape="rect" coords="155,112,300,136"/>
+<area href="classracv_1_1Detector.html" alt="racv::Detector" shape="rect" coords="155,168,300,192"/>
+<area href="classracv_1_1DrawRectangles.html" alt="racv::DrawRectangles" shape="rect" coords="155,224,300,248"/>
+<area href="classracv_1_1ExtractRectangles.html" alt="racv::ExtractRectangles" shape="rect" coords="155,280,300,304"/>
+<area href="classracv_1_1Gray.html" alt="racv::Gray" shape="rect" coords="155,336,300,360"/>
+<area href="classracv_1_1ShowFrames.html" alt="racv::ShowFrames" shape="rect" coords="155,392,300,416"/>
+<area href="classracv_1_1SwitchPipe.html" alt="racv::SwitchPipe" shape="rect" coords="155,448,300,472"/>
+<area href="classracv_1_1Track.html" alt="racv::Track" shape="rect" coords="155,504,300,528"/>
+<area href="classracv_1_1WriteFrames.html" alt="racv::WriteFrames" shape="rect" coords="155,560,300,584"/>
+<area href="classracv_1_1WriteVideo.html" alt="racv::WriteVideo" shape="rect" coords="155,616,300,640"/>
 </map>
  </div></div>
 
@@ -115,17 +122,22 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a81f6b002d51c06e5af7a91bc5282a38b">Pipe</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a48fa6c3dee8aecf180f7b92b95c28986">~Pipe</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classracv_1_1Pipe.html">Pipe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a28cb236a593bb9c68fe7d2b33e9633e1">plugPipe</a> (<a class="el" href="classracv_1_1Pipe.html">Pipe</a> *<a class="el" href="classracv_1_1Pipe.html#a8dc6fcdbc5a17ffac8230191859b2300">next</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#aa78593bfc9889c8dd335d1575aa282ca">sendPipe</a> (<a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a> msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a97a9d1602866860ce2f4099e6bcc14b1">sendPipe</a> (<a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a> msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#af1ca445d648cbde7df95b3835a989071">setReservoir</a> (<a class="el" href="classracv_1_1Reservoir.html">Reservoir</a> *<a class="el" href="classracv_1_1Pipe.html#a0e4e3940a22f7a28548ecd990acba0c3">reservoir</a>)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a90006e3f8b3e6158a7c66e0cbb940730">showLogs</a> (<a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a> msg)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing</a> (<a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a> msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a4ce25201af758088e30f48d5f7e9d64d">processingSingleFrame</a> (cv::Mat *image)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#afe4ee080d7b61ac438889b9e0e096728">processingSingleFrame</a> (cv::Mat *image, cv::Mat *data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#af489adbe987b31a369815c8d050ea17d">postprocessing</a> (<a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a> msg)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classracv_1_1Pipe.html">Pipe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a8dc6fcdbc5a17ffac8230191859b2300">next</a></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classracv_1_1Reservoir.html">Reservoir</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classracv_1_1Pipe.html#a0e4e3940a22f7a28548ecd990acba0c3">reservoir</a></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a81f6b002d51c06e5af7a91bc5282a38b"></a><!-- doxytag: member="racv::Pipe::Pipe" ref="a81f6b002d51c06e5af7a91bc5282a38b" args="()" -->
@@ -178,6 +190,26 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af489adbe987b31a369815c8d050ea17d"></a><!-- doxytag: member="racv::Pipe::postprocessing" ref="af489adbe987b31a369815c8d050ea17d" args="(Pipe::PipeMsg msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a> racv::Pipe::postprocessing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a>&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Process to apply to all the data coming backward through this pipe </p>
+
+<p>Reimplemented in <a class="el" href="classracv_1_1DataSaviour.html#a3302edb4833d460d83844e25b88030cb">racv::DataSaviour</a>, and <a class="el" href="classracv_1_1DebugPipe.html#acb978674b8e978206d7ae3a1df7c6a07">racv::DebugPipe</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a384636a3c067d0d76dc841cc7137e06a"></a><!-- doxytag: member="racv::Pipe::processing" ref="a384636a3c067d0d76dc841cc7137e06a" args="(Pipe::PipeMsg msg)" -->
 <div class="memitem">
 <div class="memproto">
@@ -192,13 +224,13 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Process to apply to all the data coming through this pipe </p>
+<p>Process to apply to all the data coming forward through this pipe Note: overloading this method avoids calling processingSingleFrame </p>
 
-<p>Reimplemented in <a class="el" href="classracv_1_1BodyDetect.html#a831df0b6d6a44869156783352a29b579">racv::BodyDetect</a>.</p>
+<p>Reimplemented in <a class="el" href="classracv_1_1DataSaviour.html#ab318f2a5d7772e41da6bf5c8106bf457">racv::DataSaviour</a>, <a class="el" href="classracv_1_1DebugPipe.html#a8784f1b60b1b9b2351f71d52aaba0470">racv::DebugPipe</a>, <a class="el" href="classracv_1_1Detector.html#ac9cbfb095d81b78d9b3fb367a7dbb2ad">racv::Detector</a>, <a class="el" href="classracv_1_1ExtractRectangles.html#acb4519145c8359c67d76a62649ed837d">racv::ExtractRectangles</a>, and <a class="el" href="classracv_1_1Track.html#a916e312bb9d20e9ace2e27fed0209e0c">racv::Track</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4ce25201af758088e30f48d5f7e9d64d"></a><!-- doxytag: member="racv::Pipe::processingSingleFrame" ref="a4ce25201af758088e30f48d5f7e9d64d" args="(cv::Mat *image)" -->
+<a class="anchor" id="afe4ee080d7b61ac438889b9e0e096728"></a><!-- doxytag: member="racv::Pipe::processingSingleFrame" ref="afe4ee080d7b61ac438889b9e0e096728" args="(cv::Mat *image, cv::Mat *data)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -206,32 +238,62 @@ Protected Attributes</h2></td></tr>
           <td class="memname">virtual void racv::Pipe::processingSingleFrame </td>
           <td>(</td>
           <td class="paramtype">cv::Mat *&#160;</td>
-          <td class="paramname"><em>image</em></td><td>)</td>
-          <td><code> [protected, virtual]</code></td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Mat *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [protected, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Process to apply to each piece of data Note: when <a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing()</a> is not overloaded it automatically call processingSingleFrame with each piece of data </p>
+<p>Process to apply to each piece of data Note: when <a class="el" href="classracv_1_1Pipe.html#a384636a3c067d0d76dc841cc7137e06a">processing()</a> is not overloaded it automatically calls processingSingleFrame with each piece of data </p>
 
-<p>Reimplemented in <a class="el" href="classracv_1_1BackgroundSubstraction.html#ae3d8ceeb69e35cc24d97ae145c254f15">racv::BackgroundSubstraction</a>, <a class="el" href="classracv_1_1Gray.html#a1331eda369e6a7ca61ce217dc134a7a5">racv::Gray</a>, <a class="el" href="classracv_1_1ShowFrames.html#a549221ca6e9608b2edd96015df863f39">racv::ShowFrames</a>, and <a class="el" href="classracv_1_1WriteFrames.html#a01d61990de572b01db4ac2a56bb64f5e">racv::WriteFrames</a>.</p>
+<p>Reimplemented in <a class="el" href="classracv_1_1DrawRectangles.html#aad1cb6c88bfd867d39f51a2b09c24b0b">racv::DrawRectangles</a>, <a class="el" href="classracv_1_1ShowFrames.html#a2b8513a7cd9d48d9a2d80d3006d81028">racv::ShowFrames</a>, <a class="el" href="classracv_1_1WriteFrames.html#a70863521894991f294dce66c770a51c5">racv::WriteFrames</a>, and <a class="el" href="classracv_1_1WriteVideo.html#a7be4822de2e4c16908a5afaef0c65a90">racv::WriteVideo</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa78593bfc9889c8dd335d1575aa282ca"></a><!-- doxytag: member="racv::Pipe::sendPipe" ref="aa78593bfc9889c8dd335d1575aa282ca" args="(Pipe::PipeMsg msg)" -->
+<a class="anchor" id="a97a9d1602866860ce2f4099e6bcc14b1"></a><!-- doxytag: member="racv::Pipe::sendPipe" ref="a97a9d1602866860ce2f4099e6bcc14b1" args="(Pipe::PipeMsg msg)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a> racv::Pipe::sendPipe </td>
+          <td class="memname">virtual <a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a> racv::Pipe::sendPipe </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structracv_1_1Pipe_1_1PipeMsg.html">Pipe::PipeMsg</a>&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classracv_1_1SwitchPipe.html#a66c1e22f9469bd0a01d90ea08a7f0418">racv::SwitchPipe</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af1ca445d648cbde7df95b3835a989071"></a><!-- doxytag: member="racv::Pipe::setReservoir" ref="af1ca445d648cbde7df95b3835a989071" args="(Reservoir *reservoir)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void* racv::Pipe::setReservoir </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classracv_1_1Reservoir.html">Reservoir</a> *&#160;</td>
+          <td class="paramname"><em>reservoir</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Send the data to the next <a class="el" href="classracv_1_1Pipe.html">Pipe</a> (Threaded !) Sets a pointer to the <a class="el" href="classracv_1_1Reservoir.html">Reservoir</a> If a pipe is plugged the pointer gets propagated </p>
 
 </div>
 </div>
@@ -266,8 +328,21 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0e4e3940a22f7a28548ecd990acba0c3"></a><!-- doxytag: member="racv::Pipe::reservoir" ref="a0e4e3940a22f7a28548ecd990acba0c3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classracv_1_1Reservoir.html">Reservoir</a>* <a class="el" href="classracv_1_1Pipe.html#a0e4e3940a22f7a28548ecd990acba0c3">racv::Pipe::reservoir</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/pipes/<a class="el" href="Pipe_8hpp.html">Pipe.hpp</a></li>
+<li>include/libRacv/pipes/core/<a class="el" href="Pipe_8hpp.html">Pipe.hpp</a></li>
 </ul>
 </div>
 </div>
@@ -275,7 +350,7 @@ Protected Attributes</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="namespaceracv.html">racv</a>      </li>
       <li class="navelem"><a class="el" href="classracv_1_1Pipe.html">Pipe</a>      </li>
-      <li class="footer">Generated on Mon Sep 26 2011 13:53:37 for libRacv by&#160;
+      <li class="footer">Generated on Thu Apr 26 2012 16:53:14 for libRacv by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>
