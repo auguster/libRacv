@@ -11,20 +11,13 @@
 
 #include <libRacv/pipes/misc/DrawRectangles.hpp>
 
-#include <opencv2/core/core.hpp>
-
 #include <iostream>
 
 namespace racv
 {
 
-DrawRectangles::DrawRectangles() :
-		debug(false)
-{
-}
-
-DrawRectangles::DrawRectangles(bool value) :
-		debug(value)
+DrawRectangles::DrawRectangles(bool value, cv::Scalar color) :
+		debug(value), color(color)
 {
 }
 

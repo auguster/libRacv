@@ -24,7 +24,7 @@ namespace racv
     DataSaviour::processing(Pipe::PipeMsg msg)
     {
         this->savedData = new std::vector<cv::Mat *>();
-        *this->savedData = *msg.data;
+        *this->savedData = *msg.data; // = operator copies the data from one vector to another
         return msg;
     }
 

@@ -12,14 +12,17 @@
 
 #include "../core/Pipe.hpp"
 
+#include <opencv2/core/core.hpp>
+
 namespace racv {
 
 class DrawRectangles: public racv::Pipe {
 private:
 	void processingSingleFrame(cv::Mat *image, cv::Mat *data);
 	bool debug;
+	cv::Scalar color;
 public:
-	DrawRectangles(bool value = false);
+	DrawRectangles(bool value = false, cv::Scalar color = CV_RGB(255, 0, 0));
 	DrawRectangles();
 	virtual ~DrawRectangles();
 };
