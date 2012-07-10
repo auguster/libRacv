@@ -23,7 +23,6 @@ private:
 	cv::Scalar color;
 public:
 	DrawRectangles(bool value = false, cv::Scalar color = CV_RGB(255, 0, 0));
-	DrawRectangles();
 	virtual ~DrawRectangles();
 };
 

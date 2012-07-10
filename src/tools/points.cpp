@@ -12,20 +12,30 @@
 namespace racv
 {
 
-	cv::Rect computeRectangle(std::vector<cv::Point2f> points)
+	cv::Rect computeRectangleFloat(std::vector<cv::Point2f> &points)
 	{
 		cv::Point hautGauche = *(points.begin());
 		cv::Point basDroit = *(points.begin());
 		for (std::vector<cv::Point2f>::iterator point = points.begin(); point < points.end(); point++)
 		{
-			if (point->x < hautGauche.x)
-				hautGauche.x = point->x;
-			if (point->y < hautGauche.y)
-				hautGauche.y = point->y;
-			if (point->x > basDroit.x)
-				basDroit.x = point->x;
-			if (point->y > basDroit.y)
-				basDroit.y = point->y;
+			if (point->x < hautGauche.x) hautGauche.x = point->x;
+			if (point->y < hautGauche.y) hautGauche.y = point->y;
+			if (point->x > basDroit.x) basDroit.x = point->x;
+			if (point->y > basDroit.y) basDroit.y = point->y;
+		}
+		return cv::Rect(hautGauche, basDroit);
+	}
+
+	cv::Rect computeRectangle(std::vector<cv::Point > &points)
+	{
+		cv::Point hautGauche = *(points.begin());
+		cv::Point basDroit = *(points.begin());
+		for (std::vector<cv::Point>::iterator point = points.begin(); point < points.end(); point++)
+		{
+			if (point->x < hautGauche.x) hautGauche.x = point->x;
+			if (point->y < hautGauche.y) hautGauche.y = point->y;
+			if (point->x > basDroit.x) basDroit.x = point->x;
+			if (point->y > basDroit.y) basDroit.y = point->y;
 		}
 		return cv::Rect(hautGauche, basDroit);
 	}
@@ -46,8 +56,7 @@ namespace racv
 		std::vector<uchar>::iterator statu = status.begin();
 		while (point < points.end() && statu < status.end())
 		{
-			if (*statu)
-				newPoints.push_back(*point);
+			if (*statu) newPoints.push_back(*point);
 			point++;
 			statu++;
 		}
@@ -80,7 +89,6 @@ namespace racv
 		else
 			mL2 = -1 / mL1;
 		n = midy - mL2 * midx;
-
 
 		//Y=mL2*x+n;
 		if (mL1 == 0)

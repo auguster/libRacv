@@ -14,6 +14,17 @@
 
 namespace racv
 {
+	Reservoir::Reservoir()
+	{
+		this->capture = new cv::VideoCapture(0);
+
+		if (!capture) //TODO Lever une exception !
+		{
+			std::cerr << "No capture !" << std::endl;
+			exit(EXIT_FAILURE);
+		}
+	}
+
 	Reservoir::Reservoir(cv::VideoCapture *capture)
 	{
 		this->capture = capture;
@@ -91,7 +102,7 @@ namespace racv
 		cv::Mat frame;
 		*this->capture >> frame;
 		cv::Size size(frame.cols, frame.rows);
-		this->capture->set(CV_CAP_PROP_POS_FRAMES, this->capture->get(CV_CAP_PROP_POS_FRAMES)-1);
+		this->capture->set(CV_CAP_PROP_POS_FRAMES, this->capture->get(CV_CAP_PROP_POS_FRAMES) - 1);
 		return size;
 	}
 
@@ -100,5 +111,4 @@ namespace racv
 		return this->capture;
 	}
 }
-
 

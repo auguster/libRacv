@@ -23,6 +23,7 @@ DrawRectangles::DrawRectangles(bool value, cv::Scalar color) :
 
 DrawRectangles::~DrawRectangles()
 {
+
 }
 
 void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data)

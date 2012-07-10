@@ -18,7 +18,8 @@ namespace racv {
 	/**
 	 * Computes a rectangle fitting the cloud of points
 	 */
-	cv::Rect computeRectangle(std::vector<cv::Point2f> points);
+	cv::Rect computeRectangle(std::vector<cv::Point2f> &points);
+	cv::Rect computeRectangle(std::vector<cv::Point> &points);
 
 	/**
 	 * Changes the coordinate of a vector of points
