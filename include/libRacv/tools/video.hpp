@@ -19,6 +19,12 @@ namespace racv {
 	 */
 	int frameCounter(cv::VideoCapture &capture);
 
+	/**
+	 * Fast Forward (read each frames) until the wanted frame is reached
+	 * returns false on error
+	 */
+	bool fastforward(cv::VideoCapture &capture, unsigned int stopFrame);
+
 }
 
 #endif /* VIDEO_HPP_ */

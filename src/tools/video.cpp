@@ -26,4 +26,17 @@ namespace racv
 		return counter;
 	}
 
+	bool fastforward(cv::VideoCapture &capture, unsigned int stopFrame)
+	{
+		capture.set(CV_CAP_PROP_POS_FRAMES, 0);
+		int counter = 0;
+		cv::Mat frame;
+		while (capture.grab() && counter < stopFrame)
+		{
+			capture >> frame;
+			counter++;
+		}
+		return (counter == stopFrame);
+	}
+
 }
