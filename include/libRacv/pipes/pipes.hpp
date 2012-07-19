@@ -24,5 +24,6 @@
 #include "misc/SwitchPipe.hpp"
 #include "misc/Track.hpp"
 #include "misc/DebugPipe.hpp"
+#include "misc/KeepLargestRectangles.hpp"
 
 #endif /* PIPES_HPP_ */
