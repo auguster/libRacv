@@ -32,7 +32,7 @@ namespace racv
 			std::vector<racv::Rect> *rectList = racv::mat2VectRect(*data);
 			std::sort(rectList->begin(), rectList->end());
 
-			data->reshape(0, 4);
+			data->pop_back(racv::mat2VectRect(*data)->size() - 1);
 			std::vector<racv::Rect>::iterator r = rectList->begin();
 			for (int i = 0; i < n && r < rectList->end(); i++)
 			{
