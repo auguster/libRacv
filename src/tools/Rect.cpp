@@ -38,7 +38,24 @@ namespace racv
 
 	bool Rect::operator<(const racv::Rect &other) const
 	{
-		return (this->height * this->width) < (other.height * other.width);
+		return (this->area()) < (other.area());
+	}
+
+	const Rect &Rect::operator+=(const racv::Rect &other)
+	{
+		if (other.x < this->x)
+			this->x = other.x;
+
+		if (other.y < this->y)
+			this->y = other.y;
+
+		if (other.br().x > this->br().x)
+			this->br().x = other.br().x;
+
+		if (other.br().y > this->br().y)
+			this->br().y = other.br().y;
+
+		return *this;
 	}
 
 }

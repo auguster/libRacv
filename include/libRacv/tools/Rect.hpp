@@ -26,6 +26,7 @@ namespace racv
 		Rect(const cv::Point& org, const cv::Size& sz);
 		Rect(const cv::Point& pt1, const cv::Point& pt2);
 		bool operator<(const racv::Rect &other) const;
+		const Rect &operator+=(const racv::Rect &other);
 		virtual ~Rect();
 	};
 

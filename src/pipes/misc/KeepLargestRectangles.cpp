@@ -29,12 +29,12 @@ namespace racv
 	{
 		if (data)
 		{
-			std::vector<racv::Rect> *faceList = racv::mat2VectRect(*data);
-			std::sort(faceList->begin(), faceList->end());
+			std::vector<racv::Rect> *rectList = racv::mat2VectRect(*data);
+			std::sort(rectList->begin(), rectList->end());
 
 			data->reshape(0, 4);
-			std::vector<racv::Rect>::iterator r = faceList->begin();
-			for (int i = 0; i < n && r < faceList->end(); i++)
+			std::vector<racv::Rect>::iterator r = rectList->begin();
+			for (int i = 0; i < n && r < rectList->end(); i++)
 			{
 				data->push_back(*racv::rect2mat(*r));
 				r++;
