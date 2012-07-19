@@ -10,7 +10,8 @@
 #ifndef RECTANGLE_HPP_
 #define RECTANGLE_HPP_
 
-#include <opencv2/core/core.hpp>
+#include <opencv2/core/core.hpp> //FIXME remove all reference to cv::Rect and replace them by racv::Rect
+#include <libRacv/tools/Rect.hpp>
 
 namespace racv
 {
@@ -57,7 +58,7 @@ namespace racv
 	/*
 	 * Converts a cv::Mat(n, 4, CV_32F) into a vector of cv::Rect
 	 */
-	std::vector<cv::Rect > *mat2VectRect(cv::Mat mat);
+	std::vector<racv::Rect > *mat2VectRect(cv::Mat mat);
 
 	/*
 	 * Converts a vector of cv::Rect info a cv::Mat(n, 4, CV_32F)

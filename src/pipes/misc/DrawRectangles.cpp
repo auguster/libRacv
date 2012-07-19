@@ -30,7 +30,7 @@ void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data)
 {
 	if (data)
 	{
-		std::vector<cv::Rect> *rects = racv::mat2VectRect(*data);
+		std::vector<cv::Rect> *rects = (std::vector<cv::Rect> *) racv::mat2VectRect(*data);
 
 		for (std::vector<cv::Rect>::iterator rect = rects->begin();
 				rect < rects->end(); rect++)

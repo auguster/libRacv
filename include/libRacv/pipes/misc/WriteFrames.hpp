@@ -20,6 +20,7 @@ namespace racv
 	private:
 		int frameCounter;
 		std::string prefix;
+		void processingSingleFrame(cv::Mat *image, cv::Mat *data);
 	public:
 		/**
 		 * If this constructor is used then the frames' filename will just be the frame number
@@ -31,7 +32,6 @@ namespace racv
 		 */
 		WriteFrames(std::string prefix);
 		virtual ~WriteFrames();
-		void processingSingleFrame(cv::Mat *image, cv::Mat *data);
 	};
 
 }

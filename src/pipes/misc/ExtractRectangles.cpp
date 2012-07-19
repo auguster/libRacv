@@ -34,7 +34,7 @@ namespace racv
 
             for (int image = 0; image < nbImages; image++)
             {
-                std::vector<cv::Rect> *rects = racv::mat2VectRect(*(*msg.data)[image]);
+                std::vector<cv::Rect> *rects = (std::vector<cv::Rect> *) racv::mat2VectRect(*(*msg.data)[image]);
                 for (std::vector<cv::Rect>::iterator rect = rects->begin(); rect < rects->end(); rect++)
                 {
                 	if (rect->width < 0 || rect->height < 0)

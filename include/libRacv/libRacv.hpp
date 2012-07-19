@@ -7,19 +7,12 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#ifndef LIBREMICV_HPP_
-#define LIBREMICV_HPP_
+#ifndef LIBRACV_HPP_
+#define LIBRACV_HPP_
 
 #include <libRacv/pipes/pipes.hpp>
 
-#include <libRacv/tools/colorNormalization/colorNormalization.hpp>
-#include <libRacv/tools/detection.hpp>
-#include <libRacv/tools/points.hpp>
-#include <libRacv/tools/color.hpp>
-#include <libRacv/tools/matrix.hpp>
-#include <libRacv/tools/rectangle.hpp>
-#include <libRacv/tools/drawing/drawing.hpp>
-#include <libRacv/tools/video.hpp>
+#include <libRacv/tools/tools.hpp>
 
 namespace racv
 {
@@ -30,4 +23,4 @@ namespace racv
 } // namespace racv
 
 
-#endif /* LIBREMICV_HPP_ */
+#endif /* LIBRACV_HPP_ */

@@ -78,10 +78,10 @@ void showRectangle(cv::Rect rect) {
 /*
  * Converts a cv::Mat(n, 4, CV_32F) into a vector of cv::Rect
  */
-std::vector<cv::Rect> *mat2VectRect(cv::Mat mat) {
-	std::vector<cv::Rect> *vec = new std::vector<cv::Rect>();
+std::vector<racv::Rect> *mat2VectRect(cv::Mat mat) {
+	std::vector<racv::Rect> *vec = new std::vector<racv::Rect>();
 	for (int i = 0; i < mat.rows; i++) {
-		cv::Rect *rect = new cv::Rect();
+		racv::Rect *rect = new racv::Rect();
 		rect->x = mat.at<float>(i, 0);
 		rect->y = mat.at<float>(i, 1);
 		rect->height = mat.at<float>(i, 2);

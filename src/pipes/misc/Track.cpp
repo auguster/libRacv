@@ -38,7 +38,7 @@ namespace racv
           (*msg.imgs)[i]->copyTo(*copyMat);
           this->savedImgs.push_back(copyMat);
 
-          std::vector<cv::Rect> *rects = racv::mat2VectRect(*(*msg.data)[i]);
+          std::vector<cv::Rect> *rects = (std::vector<cv::Rect> *) racv::mat2VectRect(*(*msg.data)[i]);
 
           cv::Mat searchMask(cv::Size((*msg.imgs)[i]->cols, (*msg.imgs)[i]->rows), CV_8U); //on créé un masque de recherche
 
