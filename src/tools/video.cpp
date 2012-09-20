@@ -21,7 +21,7 @@ namespace racv
 		cv::Mat frame;
 		while (capture.grab())
 		{
-			capture >> frame;
+			capture.retrieve(frame);
 			counter++;
 		}
 		capture.set(CV_CAP_PROP_POS_FRAMES, 0); //on remet la vidéo à zéro
