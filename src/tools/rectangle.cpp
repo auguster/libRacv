@@ -11,6 +11,8 @@
 
 #include <iostream>
 
+#include <math.h>
+
 namespace racv {
 bool isOverlapping(cv::Rect A, cv::Rect B) {
 	return (((A.x <= B.x) && (B.x <= (A.x + A.width)))
@@ -118,5 +120,31 @@ cv::Rect *mat2rect(cv::Mat mat)
 	rect->x = mat.at<float>(0, 2);
 	rect->x = mat.at<float>(0, 3);
 	return rect;
+}
+
+void rotatePoint(cv::Point &point, cv::Point center, double angle)
+{
+	double AngCrad;
+	AngCrad = (M_PI * angle) / 180;
+	point.x =  ((point.x - center.x) * cos(AngCrad) - (point.y - center.y) * sin(AngCrad) + center.x);
+	point.y = ((point.x - center.x) * sin(AngCrad) + (point.y - center.y) * cos(AngCrad) + center.y);
+}
+
+void rotateRectangle(cv::Rect &rect, cv::Point center, double angle)
+{
+	cv::Point hautGauche = rect.tl();
+	cv::Point basDroit = rect.br();
+	rotatePoint(hautGauche, center, angle);
+	rotatePoint(basDroit, center, angle);
+	rect.tl() = hautGauche;
+	rect.br() = basDroit;
+}
+
+void rotateRectangles(std::vector<cv::Rect > &rects, cv::Point center, double angle)
+{
+	for (std::vector<cv::Rect >::iterator rect = rects.begin(); rect < rects.end(); rect++)
+	{
+		rotateRectangle(*rect, center, angle);
+	}
 }
 }

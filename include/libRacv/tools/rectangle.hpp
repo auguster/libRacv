@@ -75,6 +75,16 @@ namespace racv
 	 */
 	cv::Rect *mat2rect(cv::Mat mat);
 
+	/*
+	 * Rotates a rectangle around a point given an angle
+	 */
+	void rotateRectangle(cv::Rect &rect, cv::Point center, double angle);
+
+	/*
+	 * Rotates a whole vector of rectangle around a single point given an angle
+	 */
+	void rotateRectangles(std::vector<cv::Rect > &rects, cv::Point center, double angle);
+
 } // namespace racv
 
 #endif /* RECTANGLE_HPP_ */
