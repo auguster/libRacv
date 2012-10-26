@@ -8,143 +8,153 @@
  */
 
 #include <libRacv/tools/rectangle.hpp>
+#include <libRacv/tools/points.hpp>
 
 #include <iostream>
 
 #include <math.h>
 
-namespace racv {
-bool isOverlapping(cv::Rect A, cv::Rect B) {
-	return (((A.x <= B.x) && (B.x <= (A.x + A.width)))
-			&& ((A.y <= B.y) && (B.y <= (A.y + A.height))))
-			|| (((A.x <= (B.x + B.width))
-					&& ((B.x + B.width) <= (A.x + A.width)))
-					&& ((A.y <= (B.y + B.height))
-							&& ((B.y + B.height) <= (A.y + A.height))));
-}
+namespace racv
+{
+	bool isOverlapping(cv::Rect A, cv::Rect B)
+	{
+		return (((A.x <= B.x) && (B.x <= (A.x + A.width))) && ((A.y <= B.y) && (B.y <= (A.y + A.height)))) || (((A.x <= (B.x + B.width)) && ((B.x + B.width) <= (A.x
+				+ A.width))) && ((A.y <= (B.y + B.height)) && ((B.y + B.height) <= (A.y + A.height))));
+	}
 
-void merge(std::vector<cv::Rect> &source, std::vector<cv::Rect> &destination) {
-	for (std::vector<cv::Rect>::iterator A = source.begin(); A < source.end();
-			A++) {
-		for (std::vector<cv::Rect>::iterator B = destination.begin();
-				B < destination.end(); B++) {
-			if (isOverlapping(*A, *B)) {
-				break;
-			}
+	void merge(std::vector<cv::Rect> &source, std::vector<cv::Rect> &destination)
+	{
+		for (std::vector<cv::Rect>::iterator A = source.begin(); A < source.end(); A++)
+		{
+			for (std::vector<cv::Rect>::iterator B = destination.begin(); B < destination.end(); B++)
+			{
+				if (isOverlapping(*A, *B))
+				{
+					break;
+				}
 
-			if (B == destination.end()) {
-				destination.push_back(*A);
-				break;
+				if (B == destination.end())
+				{
+					destination.push_back(*A);
+					break;
+				}
 			}
 		}
 	}
-}
 
-void scaleRectangle(cv::Rect &rectangle, double scale) {
-	rectangle.x *= scale;
-	rectangle.y *= scale;
-	rectangle.width *= scale;
-	rectangle.height *= scale;
-}
-
-void scaleRectangleKeepCenter(cv::Rect &rectangle, double scale) {
-	rectangle.x -= (rectangle.width * scale - rectangle.width) / 2;
-	rectangle.y -= (rectangle.height * scale - rectangle.height) / 2;
-	rectangle.width *= scale;
-	rectangle.height *= scale;
-}
-
-void fitRectangle(cv::Mat image, cv::Rect& rectangle) {
-	rectangle.x = cv::max(0, rectangle.x);
-	rectangle.y = cv::max(0, rectangle.y);
-	rectangle.width = cv::min(rectangle.width, image.cols - rectangle.x);
-	rectangle.height = cv::min(rectangle.height, image.rows - rectangle.y);
-}
-
-/**
- * returns true if bRect overlaps an upscaled (10% ?) version of aRect
- */
-bool isNear(cv::Rect aRect, cv::Rect bRect, double pourcent) {
-	racv::scaleRectangleKeepCenter(aRect, pourcent);
-	return racv::isOverlapping(aRect, bRect);
-}
-
-/**
- * Displays the properties of a rectangle
- */
-void showRectangle(cv::Rect rect) {
-	std::cout << "position: (" << rect.x << " , " << rect.y << "); size: "
-			<< rect.height << " x " << rect.width << std::endl;
-}
-
-/*
- * Converts a cv::Mat(n, 4, CV_32F) into a vector of cv::Rect
- */
-std::vector<racv::Rect> *mat2VectRect(cv::Mat mat) {
-	std::vector<racv::Rect> *vec = new std::vector<racv::Rect>();
-	for (int i = 0; i < mat.rows; i++) {
-		racv::Rect *rect = new racv::Rect();
-		rect->x = mat.at<float>(i, 0);
-		rect->y = mat.at<float>(i, 1);
-		rect->height = mat.at<float>(i, 2);
-		rect->width = mat.at<float>(i, 3);
-		vec->push_back(*rect);
-	}
-
-	return vec;
-}
-
-/*
- * Converts a vector of cv::Rect info a cv::Mat(n, 4, CV_32F)
- */
-cv::Mat *VectRect2mat(std::vector<cv::Rect> vec) {
-	cv::Mat *mat = new cv::Mat(0, 4, CV_32F);
-
-	return mat;
-}
-
-cv::Mat *rect2mat(cv::Rect rect) {
-	cv::Mat *mat = new cv::Mat(1, 4, CV_32F);
-	mat->at<float>(0, 0) = rect.x;
-	mat->at<float>(0, 1) = rect.y;
-	mat->at<float>(0, 2) = rect.height;
-	mat->at<float>(0, 3) = rect.width;
-	return mat;
-}
-
-cv::Rect *mat2rect(cv::Mat mat)
-{
-	cv::Rect *rect = new cv::Rect();
-	rect->x = mat.at<float>(0, 0);
-	rect->x = mat.at<float>(0, 1);
-	rect->x = mat.at<float>(0, 2);
-	rect->x = mat.at<float>(0, 3);
-	return rect;
-}
-
-void rotatePoint(cv::Point &point, cv::Point center, double angle)
-{
-	double AngCrad;
-	AngCrad = (M_PI * angle) / 180;
-	point.x =  ((point.x - center.x) * cos(AngCrad) - (point.y - center.y) * sin(AngCrad) + center.x);
-	point.y = ((point.x - center.x) * sin(AngCrad) + (point.y - center.y) * cos(AngCrad) + center.y);
-}
-
-void rotateRectangle(cv::Rect &rect, cv::Point center, double angle)
-{
-	cv::Point hautGauche = rect.tl();
-	cv::Point basDroit = rect.br();
-	rotatePoint(hautGauche, center, angle);
-	rotatePoint(basDroit, center, angle);
-	rect.tl() = hautGauche;
-	rect.br() = basDroit;
-}
-
-void rotateRectangles(std::vector<cv::Rect > &rects, cv::Point center, double angle)
-{
-	for (std::vector<cv::Rect >::iterator rect = rects.begin(); rect < rects.end(); rect++)
+	void scaleRectangle(cv::Rect &rectangle, double scale)
 	{
-		rotateRectangle(*rect, center, angle);
+		rectangle.x *= scale;
+		rectangle.y *= scale;
+		rectangle.width *= scale;
+		rectangle.height *= scale;
 	}
-}
+
+	void scaleRectangleKeepCenter(cv::Rect &rectangle, double scale)
+	{
+		rectangle.x -= (rectangle.width * scale - rectangle.width) / 2;
+		rectangle.y -= (rectangle.height * scale - rectangle.height) / 2;
+		rectangle.width *= scale;
+		rectangle.height *= scale;
+	}
+
+	void fitRectangle(cv::Mat image, cv::Rect& rectangle)
+	{
+		rectangle.x = cv::max(0, rectangle.x);
+		rectangle.y = cv::max(0, rectangle.y);
+		rectangle.width = cv::min(rectangle.width, image.cols - rectangle.x);
+		rectangle.height = cv::min(rectangle.height, image.rows - rectangle.y);
+	}
+
+	/**
+	 * returns true if bRect overlaps an upscaled (10% ?) version of aRect
+	 */
+	bool isNear(cv::Rect aRect, cv::Rect bRect, double pourcent)
+	{
+		racv::scaleRectangleKeepCenter(aRect, pourcent);
+		return racv::isOverlapping(aRect, bRect);
+	}
+
+	/**
+	 * Displays the properties of a rectangle
+	 */
+	void showRectangle(cv::Rect rect)
+	{
+		std::cout << "position: (" << rect.x << " , " << rect.y << "); size: " << rect.height << " x " << rect.width << std::endl;
+	}
+
+	/*
+	 * Converts a cv::Mat(n, 4, CV_32F) into a vector of cv::Rect
+	 */
+	std::vector<racv::Rect> *mat2VectRect(cv::Mat mat)
+	{
+		std::vector<racv::Rect> *vec = new std::vector<racv::Rect>();
+		for (int i = 0; i < mat.rows; i++)
+		{
+			racv::Rect *rect = new racv::Rect();
+			rect->x = mat.at<float> (i, 0);
+			rect->y = mat.at<float> (i, 1);
+			rect->height = mat.at<float> (i, 2);
+			rect->width = mat.at<float> (i, 3);
+			vec->push_back(*rect);
+		}
+
+		return vec;
+	}
+
+	/*
+	 * Converts a vector of cv::Rect info a cv::Mat(n, 4, CV_32F)
+	 */
+	cv::Mat *VectRect2mat(std::vector<cv::Rect> vec)
+	{
+		cv::Mat *mat = new cv::Mat(0, 4, CV_32F);
+
+		return mat;
+	}
+
+	cv::Mat *rect2mat(cv::Rect rect)
+	{
+		cv::Mat *mat = new cv::Mat(1, 4, CV_32F);
+		mat->at<float> (0, 0) = rect.x;
+		mat->at<float> (0, 1) = rect.y;
+		mat->at<float> (0, 2) = rect.height;
+		mat->at<float> (0, 3) = rect.width;
+		return mat;
+	}
+
+	cv::Rect *mat2rect(cv::Mat mat)
+	{
+		cv::Rect *rect = new cv::Rect();
+		rect->x = mat.at<float> (0, 0);
+		rect->x = mat.at<float> (0, 1);
+		rect->x = mat.at<float> (0, 2);
+		rect->x = mat.at<float> (0, 3);
+		return rect;
+	}
+
+	void rotatePoint(cv::Point &point, cv::Point center, double angle)
+	{
+		double AngCrad;
+		AngCrad = (M_PI * angle) / 180;
+		point.x = ((point.x - center.x) * cos(AngCrad) - (point.y - center.y) * sin(AngCrad) + center.x);
+		point.y = ((point.x - center.x) * sin(AngCrad) + (point.y - center.y) * cos(AngCrad) + center.y);
+	}
+
+	void rotateRectangle(cv::Rect &rect, cv::Point center, double angle)
+	{
+		cv::Point mass;
+		mass.x = rect.x + rect.width / 2;
+		mass.y = rect.y + rect.height / 2;
+		rotatePoint(mass, center, angle);
+		cv::RotatedRect rrect(mass, rect.size(), angle);
+		rect = rrect.boundingRect();
+	}
+
+	void rotateRectangles(std::vector<cv::Rect> &rects, cv::Point center, double angle)
+	{
+		for (std::vector<cv::Rect>::iterator rect = rects.begin(); rect < rects.end(); rect++)
+		{
+			rotateRectangle(*rect, center, angle);
+		}
+	}
 }
