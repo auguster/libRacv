@@ -26,18 +26,19 @@ namespace racv
 	{
 		for (std::vector<cv::Rect>::iterator A = source.begin(); A < source.end(); A++)
 		{
-			for (std::vector<cv::Rect>::iterator B = destination.begin(); B < destination.end(); B++)
+			std::vector<cv::Rect>::iterator B = destination.begin();
+			for (; B < destination.end(); B++)
 			{
 				if (isOverlapping(*A, *B))
 				{
 					break;
 				}
+			}
 
-				if (B == destination.end())
-				{
-					destination.push_back(*A);
-					break;
-				}
+			if (B == destination.end())
+			{
+				destination.push_back(*A);
+				break;
 			}
 		}
 	}
