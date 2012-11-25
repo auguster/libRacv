@@ -49,11 +49,13 @@ namespace racv
 		if (other.y < this->y)
 			this->y = other.y;
 
+		/*FIXME modifier width et height au lieu de br()
 		if (other.br().x > this->br().x)
 			this->br().x = other.br().x;
 
 		if (other.br().y > this->br().y)
 			this->br().y = other.br().y;
+		*/
 
 		return *this;
 	}
