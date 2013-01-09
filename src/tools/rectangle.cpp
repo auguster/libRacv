@@ -16,10 +16,29 @@
 
 namespace racv
 {
+	bool inSegment(int a, int bstart, int bend)
+	{
+		return ((a >= bstart) && (a <= bend));
+	}
+
+	//FIXME this function only works with rectangles which edges are
+	//parallel to the X and Y axis.
+	//--> should not be used on rotated rectangles
 	bool isOverlapping(cv::Rect A, cv::Rect B)
 	{
-		return (((A.x <= B.x) && (B.x <= (A.x + A.width))) && ((A.y <= B.y) && (B.y <= (A.y + A.height))))
-				|| (((A.x <= (B.x + B.width)) && ((B.x + B.width) <= (A.x + A.width))) && ((A.y <= (B.y + B.height)) && ((B.y + B.height) <= (A.y + A.height))));
+		bool axdansb = inSegment(A.x, B.x, B.br().x);
+		bool abrxdansb = inSegment(A.br().x, B.x, B.br().x);
+		bool bxdansa = inSegment(B.x, A.x, A.br().x);
+		bool bbrxdansa = inSegment(B.br().x, A.x, A.br().x);
+		bool xoverlap = axdansb || abrxdansb || bxdansa || bbrxdansa;
+
+		bool aydansb = inSegment(A.y, B.y, B.br().y);
+		bool abrydansb = inSegment(A.br().y, B.y, B.br().y);
+		bool bydansa = inSegment(B.y, A.y, A.br().y);
+		bool bbrydansa = inSegment(B.br().y, A.y, A.br().y);
+		bool yoverlap = aydansb || abrydansb || bydansa || bbrydansa;
+
+		return xoverlap && yoverlap;
 	}
 
 	void merge(std::vector<cv::Rect> &source, std::vector<cv::Rect> &destination)
