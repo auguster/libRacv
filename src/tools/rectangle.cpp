@@ -18,8 +18,8 @@ namespace racv
 {
 	bool isOverlapping(cv::Rect A, cv::Rect B)
 	{
-		return (((A.x <= B.x) && (B.x <= (A.x + A.width))) && ((A.y <= B.y) && (B.y <= (A.y + A.height)))) || (((A.x <= (B.x + B.width)) && ((B.x + B.width) <= (A.x
-				+ A.width))) && ((A.y <= (B.y + B.height)) && ((B.y + B.height) <= (A.y + A.height))));
+		return (((A.x <= B.x) && (B.x <= (A.x + A.width))) && ((A.y <= B.y) && (B.y <= (A.y + A.height))))
+				|| (((A.x <= (B.x + B.width)) && ((B.x + B.width) <= (A.x + A.width))) && ((A.y <= (B.y + B.height)) && ((B.y + B.height) <= (A.y + A.height))));
 	}
 
 	void merge(std::vector<cv::Rect> &source, std::vector<cv::Rect> &destination)
@@ -65,6 +65,8 @@ namespace racv
 		rectangle.y = cv::max(0, rectangle.y);
 		rectangle.width = cv::min(rectangle.width, image.cols - rectangle.x);
 		rectangle.height = cv::min(rectangle.height, image.rows - rectangle.y);
+		rectangle.width = cv::max(0, rectangle.width);
+		rectangle.height = cv::max(0, rectangle.height);
 	}
 
 	/**
@@ -93,10 +95,10 @@ namespace racv
 		for (int i = 0; i < mat.rows; i++)
 		{
 			racv::Rect *rect = new racv::Rect();
-			rect->x = mat.at<float> (i, 0);
-			rect->y = mat.at<float> (i, 1);
-			rect->height = mat.at<float> (i, 2);
-			rect->width = mat.at<float> (i, 3);
+			rect->x = mat.at<float>(i, 0);
+			rect->y = mat.at<float>(i, 1);
+			rect->height = mat.at<float>(i, 2);
+			rect->width = mat.at<float>(i, 3);
 			vec->push_back(*rect);
 		}
 
@@ -116,20 +118,20 @@ namespace racv
 	cv::Mat *rect2mat(cv::Rect rect)
 	{
 		cv::Mat *mat = new cv::Mat(1, 4, CV_32F);
-		mat->at<float> (0, 0) = rect.x;
-		mat->at<float> (0, 1) = rect.y;
-		mat->at<float> (0, 2) = rect.height;
-		mat->at<float> (0, 3) = rect.width;
+		mat->at<float>(0, 0) = rect.x;
+		mat->at<float>(0, 1) = rect.y;
+		mat->at<float>(0, 2) = rect.height;
+		mat->at<float>(0, 3) = rect.width;
 		return mat;
 	}
 
 	cv::Rect *mat2rect(cv::Mat mat)
 	{
 		cv::Rect *rect = new cv::Rect();
-		rect->x = mat.at<float> (0, 0);
-		rect->x = mat.at<float> (0, 1);
-		rect->x = mat.at<float> (0, 2);
-		rect->x = mat.at<float> (0, 3);
+		rect->x = mat.at<float>(0, 0);
+		rect->x = mat.at<float>(0, 1);
+		rect->x = mat.at<float>(0, 2);
+		rect->x = mat.at<float>(0, 3);
 		return rect;
 	}
 
