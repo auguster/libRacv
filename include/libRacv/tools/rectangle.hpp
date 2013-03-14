@@ -85,6 +85,11 @@ namespace racv
 	 */
 	void rotateRectangles(std::vector<cv::Rect > &rects, cv::Point center, double angle);
 
+	/**
+	 * Returns a rectangle that contains both rectangle
+	 */
+	cv::Rect mergeRect(cv::Rect aRect, cv::Rect bRect);
+
 } // namespace racv
 
 #endif /* RECTANGLE_HPP_ */

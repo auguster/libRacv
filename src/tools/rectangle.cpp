@@ -82,8 +82,8 @@ namespace racv
 	{
 		rectangle.x = cv::max(0, rectangle.x);
 		rectangle.y = cv::max(0, rectangle.y);
-		rectangle.width = cv::min(rectangle.width, image.cols - rectangle.x);
-		rectangle.height = cv::min(rectangle.height, image.rows - rectangle.y);
+		//rectangle.width = cv::min(rectangle.width, image.cols - rectangle.x);
+		//rectangle.height = cv::min(rectangle.height, image.rows - rectangle.y);
 		rectangle.width = cv::max(0, rectangle.width);
 		rectangle.height = cv::max(0, rectangle.height);
 	}
@@ -179,4 +179,16 @@ namespace racv
 			rotateRectangle(*rect, center, angle);
 		}
 	}
+
+	cv::Rect mergeRect(cv::Rect aRect, cv::Rect bRect)
+	{
+		cv::Rect temp;
+		temp.x = cv::min(aRect.x, bRect.x);
+		temp.y = cv::min(aRect.y, bRect.y);
+		temp.width = cv::max(aRect.br().x, bRect.br().x) - temp.x;
+		temp.height = cv::max(aRect.br().y, bRect.br().y) - temp.y;
+
+		return temp;
+	}
+
 }

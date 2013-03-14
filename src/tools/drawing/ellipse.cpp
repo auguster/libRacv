@@ -22,7 +22,7 @@ namespace racv
 		points = &pts[0];
 		int nbtab = pts.size();
 
-		cv::fillPoly(image, (const cv::Point **) &points, &nbtab, 1, color, 16);
+		cv::fillPoly(image, (const cv::Point **) &points, &nbtab, 1, color, 0);
 	}
 
 	void drawFilledEllipse(cv::Mat &image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &color, double alpha)
@@ -30,5 +30,14 @@ namespace racv
 		cv::Mat tempImage(image.rows, image.cols, image.type());
 		drawFilledEllipse(tempImage, center, size, angle, startingAngle, endingAngle, color);
 		cv::addWeighted(tempImage, alpha, image, 1, 0, image);
+	}
+
+	void drawEllipseFromRect(cv::Mat &image, cv::Rect rect, cv::Scalar color)
+	{
+		cv::Point center;
+		center.x = rect.x + rect.width / 2;
+		center.y = rect.y + rect.height / 2;
+		cv::Size size(rect.width / 2, rect.height / 2);
+		racv::drawFilledEllipse(image, center, size, 0, 0, 360, color);
 	}
 } // namespace racv

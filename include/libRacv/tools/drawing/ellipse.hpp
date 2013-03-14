@@ -19,6 +19,11 @@ namespace racv {
 
 	void drawFilledEllipse(cv::Mat &image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &color, double alpha);
 
+	/**
+	 * Draws a filled ellipse using a rectangle's parameters
+	 */
+	void drawEllipseFromRect(cv::Mat &image, cv::Rect rect, cv::Scalar color);
+
 }  // namespace racv
 
 #endif /* ELLIPSE_HPP_ */
