@@ -187,7 +187,6 @@ namespace racv
 		temp.y = cv::min(aRect.y, bRect.y);
 		temp.width = cv::max(aRect.br().x, bRect.br().x) - temp.x;
 		temp.height = cv::max(aRect.br().y, bRect.br().y) - temp.y;
-
 		return temp;
 	}
 
