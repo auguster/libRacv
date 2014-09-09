@@ -82,8 +82,8 @@ namespace racv
 	{
 		rectangle.x = cv::max(0, rectangle.x);
 		rectangle.y = cv::max(0, rectangle.y);
-		//rectangle.width = cv::min(rectangle.width, image.cols - rectangle.x);
-		//rectangle.height = cv::min(rectangle.height, image.rows - rectangle.y);
+		rectangle.width = cv::min(rectangle.width, image.cols - rectangle.x);
+		rectangle.height = cv::min(rectangle.height, image.rows - rectangle.y);
 		rectangle.width = cv::max(0, rectangle.width);
 		rectangle.height = cv::max(0, rectangle.height);
 	}
