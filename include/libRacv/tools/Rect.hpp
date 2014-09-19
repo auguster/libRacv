@@ -25,6 +25,10 @@ namespace racv
 		Rect(int x, int y, int width, int height);
 		Rect(const cv::Point& org, const cv::Size& sz);
 		Rect(const cv::Point& pt1, const cv::Point& pt2);
+
+		/**
+		 * Compares the area of rectangle with another one
+		 */
 		bool operator<(const racv::Rect &other) const;
 		const Rect &operator+=(const racv::Rect &other);
 		virtual ~Rect();
