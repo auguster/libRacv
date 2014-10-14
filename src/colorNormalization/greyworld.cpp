@@ -7,40 +7,46 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/pipes/misc/Detector.hpp>
+#include <libRacv/colorNormalization/greyworld.hpp>
 
-#include <libRacv/tools/detection.hpp>
-#include <libRacv/tools/rectangle.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
-#include <vector>
 #include <iostream>
 
-namespace racv {
+namespace racv
+{
 
-Detector::Detector(cv::CascadeClassifier *classifier) {
-	this->classifier = classifier;
-}
+	cv::Mat greyworld(cv::Mat image)
+	{
+		cv::Scalar rgb = cv::mean(image);
 
-Detector::Detector(std::string classifierFile) {
-	this->classifier = new cv::CascadeClassifier(classifierFile);
-}
+		cv::Mat expanded;
 
-Detector::~Detector() {
-}
+		cv::Mat tiny(cv::Size(1, 1), image.type());
+		tiny.data[0] = rgb[0];
+		tiny.data[1] = rgb[1];
+		tiny.data[2] = rgb[2];
 
-Pipe::PipeMsg Detector::processing(Pipe::PipeMsg msg) {
-	for (std::vector<cv::Mat *>::iterator image = msg.imgs->begin();
-			image < msg.imgs->end(); image++) {
-		racv::smartDetect(*this->classifier, **image, detectList);
+		std::cout << rgb[0] << " " << rgb[1] << " " << rgb[2] << std::endl;
 
-		for (std::vector<cv::Rect>::iterator rect = detectList.begin();	rect < detectList.end(); rect++) {
-			if (!(*msg.data)[0])
-					(*msg.data)[0] = new cv::Mat(0, 4, CV_32F);
-			(*msg.data)[0]->push_back(*racv::rect2mat(*rect));
-		}
+		cv::resize(tiny, expanded, image.size());
+
+		cv::Mat *result = new cv::Mat(image.size(), image.type());
+
+		for (int i = 0; i < image.rows; i++)
+			for (int j = 0; j < image .cols * 3; j += 3)
+			{
+				result->data[i * image.cols * 3 + j] = (int) (image.data[i * image.cols * 3 + j] /  rgb[0] * 100) % 255; //FIXME / par la moyenne RGB
+				result->data[i * image.cols * 3 + j + 1] = (int) (image.data[i * image.cols * 3 + j + 1] / rgb[1] * 100) % 255;
+				result->data[i * image.cols * 3 + j + 2] = (int) (image.data[i * image.cols * 3 + j + 2] / rgb[2] * 100) % 255;
+			}
+
+		//cv::divide(image, expanded, *result);
+
+		cv::imshow("result", expanded);
+
+		return *result;
 	}
 
-	return msg;
-}
-
-} /* namespace racv */
+} // namespace racv

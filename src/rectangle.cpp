@@ -7,8 +7,8 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/tools/rectangle.hpp>
-#include <libRacv/tools/points.hpp>
+#include <libRacv/rectangle.hpp>
+#include <libRacv/points.hpp>
 
 #include <iostream>
 

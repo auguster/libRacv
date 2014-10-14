@@ -7,26 +7,37 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/tools/color.hpp>
+#include <opencv2/core/core.hpp>
 
-#include <iostream>
+#include <libRacv/drawing/ellipse.hpp>
 
 namespace racv
 {
-	int getColor(int r, int g, int b)
+	void drawFilledEllipse(cv::Mat &image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &color)
 	{
-		return (r*256+g)*256+b;
+		std::vector<cv::Point> pts;
+		cv::ellipse2Poly(center, size, angle, startingAngle, endingAngle, 1, pts);
+
+		cv::Point *points;
+		points = &pts[0];
+		int nbtab = pts.size();
+
+		cv::fillPoly(image, (const cv::Point **) &points, &nbtab, 1, color, 0);
 	}
 
-	int getChannel(int color, int channel)
+	void drawFilledEllipse(cv::Mat &image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &color, double alpha)
 	{
-		return (color >> ((2 - channel) * 8) & 255);
+		cv::Mat tempImage(image.rows, image.cols, image.type());
+		drawFilledEllipse(tempImage, center, size, angle, startingAngle, endingAngle, color);
+		cv::addWeighted(tempImage, alpha, image, 1, 0, image);
 	}
 
-	void showPixelColor(int pixel)
+	void drawEllipseFromRect(cv::Mat &image, cv::Rect rect, cv::Scalar color)
 	{
-		std::cout << "RGB(" << getChannel(pixel, RACV_RED_CHANNEL) << ", " << getChannel(pixel, RACV_GREEN_CHANNEL) << ", " << getChannel(pixel, RACV_BLUE_CHANNEL) << ")" << std::endl;
+		cv::Point center;
+		center.x = rect.x + rect.width / 2;
+		center.y = rect.y + rect.height / 2;
+		cv::Size size(rect.width / 2, rect.height / 2);
+		racv::drawFilledEllipse(image, center, size, 0, 0, 360, color);
 	}
-
-}
-
+} // namespace racv

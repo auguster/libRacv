@@ -7,41 +7,31 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/tools/rectangle.hpp>
+#include <libRacv/matrix.hpp>
 
-#include <libRacv/pipes/misc/DrawRectangles.hpp>
+#include <vector>
 
-#include <iostream>
-
-namespace racv
-{
-
-DrawRectangles::DrawRectangles(bool value, cv::Scalar color) :
-		debug(value), color(color)
-{
-}
-
-DrawRectangles::~DrawRectangles()
-{
-
-}
-
-void DrawRectangles::processingSingleFrame(cv::Mat *image, cv::Mat *data)
-{
-	if (data)
+namespace racv {
+	template < class typenombre >
+	cv::Mat *tab2mat(typenombre *tab, int length) //FIXME l'appel ne fonctionne pas ...
 	{
-		std::vector<cv::Rect> *rects = (std::vector<cv::Rect> *) racv::mat2VectRect(*data);
-
-		for (std::vector<cv::Rect>::iterator rect = rects->begin();
-				rect < rects->end(); rect++)
+		cv::Mat *matrice;
+		matrice = new cv::Mat(length, 1, CV_64F);
+		for (int i = 0; i < length; i++)
 		{
-			if (this->debug)
-			{
-				racv::showRectangle(*rect);
-			}
-			cv::rectangle(*image, *rect, cv::Scalar(0, 255, 0), 1, 8, 0);
+			matrice->at<typenombre> (0, i) = tab[i];
 		}
+		return matrice;
 	}
-}
 
-} /* namespace racv */
+	cv::Mat *tab2mat(double *tab, int length)
+		{
+			cv::Mat *matrice;
+			matrice = new cv::Mat(length, 1, CV_64F);
+			for (int i = 0; i < length; i++)
+			{
+				matrice->at<double> (0, i) = tab[i];
+			}
+			return matrice;
+		}
+}

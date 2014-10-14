@@ -7,55 +7,37 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#ifndef RESERVOIR_H_
-#define RESERVOIR_H_
+#include <libRacv/video.hpp>
 
-#include <opencv2/highgui/highgui.hpp>
-
-#include <string>
-
-#include "Pipe.hpp"
+#include <iostream>
 
 namespace racv
 {
-	class Pipe; //forward reference (for mutual inclusion)
 
-	class Reservoir
+	int frameCounter(cv::VideoCapture &capture)
 	{
-	public:
-		Reservoir();
+		capture.set(CV_CAP_PROP_POS_FRAMES, 0);
+		int counter = 0;
+		cv::Mat frame;
+		while (capture.grab())
+		{
+			capture.retrieve(frame);
+			counter++;
+		}
+		capture.set(CV_CAP_PROP_POS_FRAMES, 0); //on remet la vidéo à zéro
+		return counter;
+	}
 
-		/**
-		 * Ouverture du flux de donnée
-		 * filename: nom du fichier à ouvrir (si vide on passe sur la caméra)
-		 */
-		Reservoir(std::string filename);
+	bool fastforward(cv::VideoCapture &capture, int stopFrame)
+	{
+		int counter = capture.get(CV_CAP_PROP_POS_FRAMES);
+		std::cout << counter << std::endl;
+		cv::Mat frame;
+		while (capture.grab() && counter < stopFrame)
+		{
+			counter++;
+		}
+		return (counter == stopFrame);
+	}
 
-		/**
-		 * capture: passage manuel de la capture à exploiter
-		 */
-		Reservoir(cv::VideoCapture *capture);
-
-		virtual ~Reservoir();
-
-		/**
-		 *
-		 */
-		Pipe *plugPipe(Pipe* next);
-
-		/**
-		 *
-		 */
-		void flood();
-
-		cv::VideoCapture *getCapture();
-
-		cv::Size frameSize();
-
-	private:
-		cv::VideoCapture *capture;
-		Pipe *next;
-	};
 }
-
-#endif /* RESERVOIR_H_ */

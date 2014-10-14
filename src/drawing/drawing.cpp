@@ -7,31 +7,22 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/pipes/misc/WriteFrames.hpp>
+#include <libRacv/drawing/drawing.hpp>
 
-#include <opencv2/highgui/highgui.hpp>
+namespace racv {
 
-#include <iostream>
-
-namespace racv
-{
-
-	WriteFrames::WriteFrames():
-			frameCounter(0)
-	{}
-
-	WriteFrames::WriteFrames(std::string prefix):
-				frameCounter(0), prefix(prefix)
-	{}
-
-	WriteFrames::~WriteFrames()
-	{}
-
-	void WriteFrames::processingSingleFrame(cv::Mat *image, cv::Mat *data)
+	void fill(cv::Mat &image, const cv::Scalar &color)
 	{
-		std::stringstream ss;
-		ss << this->prefix << this->frameCounter++ << ".pgm";
-		cv::imwrite(ss.str(), *image);
+		cv::Point *points = new cv::Point[4];
+		points[0] = cv::Point(0,0);
+		points[1] = cv::Point(0, image.rows);
+		points[2] = cv::Point(image.cols, image.rows);
+		points[3] = cv::Point(image.cols, 0);
+
+		int nb = 4;
+
+		cv::fillPoly(image, (const cv::Point **) &points, &nb, 1, color);
+
 	}
 
-}
+}  // namespace racv

@@ -11,7 +11,7 @@
 #define RECTANGLE_HPP_
 
 #include <opencv2/core/core.hpp> //FIXME remove all reference to cv::Rect and replace them by racv::Rect
-#include <libRacv/tools/Rect.hpp>
+#include <libRacv/Rect.hpp>
 
 namespace racv
 {

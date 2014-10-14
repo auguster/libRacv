@@ -10,9 +10,15 @@
 #ifndef LIBRACV_HPP_
 #define LIBRACV_HPP_
 
-#include <libRacv/pipes/pipes.hpp>
-
-#include <libRacv/tools/tools.hpp>
+#include <libRacv/colorNormalization/colorNormalization.hpp>
+#include <libRacv/detection.hpp>
+#include <libRacv/points.hpp>
+#include <libRacv/color.hpp>
+#include <libRacv/matrix.hpp>
+#include <libRacv/rectangle.hpp>
+#include <libRacv/drawing/drawing.hpp>
+#include <libRacv/video.hpp>
+#include <libRacv/Rect.hpp>
 
 namespace racv
 {
