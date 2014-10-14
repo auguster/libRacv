@@ -26,7 +26,7 @@ namespace racv {
 	 * origin: new origin relative to the current one
 	 * points: the points to modify
 	 */
-	void changeOrigin(cv::Point origin, cv::vector<cv::Point2f> &points);
+	void changeOrigin(cv::Point origin, std::vector<cv::Point2f> &points);
 
 	/**
 	 * Returns a new vector of points where the points that are not marked in status have been removed.
@@ -34,12 +34,12 @@ namespace racv {
 	 * status: check if each status is > 0, the order has to be the same in both parameters
 	 * Note: the parameters are not modified
 	 */
-	cv::vector<cv::Point2f> filterOut(cv::vector<cv::Point2f> &points, std::vector<uchar> &status);
+	std::vector<cv::Point2f> filterOut(std::vector<cv::Point2f> &points, std::vector<uchar> &status);
 
 	/**
 	 * Draws a cloud of points into the image
 	 */
-	void drawPoints(cv::Mat image, cv::vector<cv::Point2f> &points, cv::Scalar color = CV_RGB(0, 0, 255));
+	void drawPoints(cv::Mat image, std::vector<cv::Point2f> &points, cv::Scalar color = cv::Scalar(0, 0, 255));
 
 	/**
 	 * returns the horizontal angle between two points included in a rectangle

@@ -23,7 +23,7 @@ namespace racv
 
 		cv::Mat expanded;
 
-		cv::Mat tiny(cvSize(1, 1), image.type());
+		cv::Mat tiny(cv::Size(1, 1), image.type());
 		tiny.data[0] = rgb[0];
 		tiny.data[1] = rgb[1];
 		tiny.data[2] = rgb[2];

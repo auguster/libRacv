@@ -40,7 +40,7 @@ namespace racv
 		return cv::Rect(hautGauche, basDroit);
 	}
 
-	void changeOrigin(cv::Point origin, cv::vector<cv::Point2f> &points)
+	void changeOrigin(cv::Point origin, std::vector<cv::Point2f> &points)
 	{
 		for (std::vector<cv::Point2f>::iterator point = points.begin(); point < points.end(); point++)
 		{
@@ -49,10 +49,10 @@ namespace racv
 		}
 	}
 
-	cv::vector<cv::Point2f> filterOut(cv::vector<cv::Point2f> &points, std::vector<uchar> &status)
+	std::vector<cv::Point2f> filterOut(std::vector<cv::Point2f> &points, std::vector<uchar> &status)
 	{
-		cv::vector<cv::Point2f> newPoints;
-		cv::vector<cv::Point2f>::iterator point = points.begin();
+		std::vector<cv::Point2f> newPoints;
+		std::vector<cv::Point2f>::iterator point = points.begin();
 		std::vector<uchar>::iterator statu = status.begin();
 		while (point < points.end() && statu < status.end())
 		{
@@ -63,7 +63,7 @@ namespace racv
 		return newPoints;
 	}
 
-	void drawPoints(cv::Mat image, cv::vector<cv::Point2f> &points, cv::Scalar color)
+	void drawPoints(cv::Mat image, std::vector<cv::Point2f> &points, cv::Scalar color)
 	{
 		for (std::vector<cv::Point2f>::iterator point = points.begin(); point < points.end(); point++)
 		{
