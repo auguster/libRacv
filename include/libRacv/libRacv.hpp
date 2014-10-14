@@ -18,6 +18,7 @@
 #include <libRacv/video.hpp>
 #include <libRacv/Rect.hpp>
 #include <libRacv/Grabcut.hpp>
+#include <libRacv/skinprop.hpp>
 
 namespace racv
 {
