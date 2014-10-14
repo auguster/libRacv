@@ -17,6 +17,7 @@
 #include <libRacv/rectangle.hpp>
 #include <libRacv/video.hpp>
 #include <libRacv/Rect.hpp>
+#include <libRacv/Grabcut.hpp>
 
 namespace racv
 {

@@ -10,6 +10,8 @@
 #ifndef ELLIPSE_HPP_
 #define ELLIPSE_HPP_
 
+#include <opencv2/core/core.hpp>
+
 namespace racv {
 
 	/**
