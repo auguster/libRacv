@@ -8,7 +8,7 @@ namespace racv
 	/**
 	 * Returns the proportion of skin color in the image
 	 */
-	double skinprop(cv::Mat &image);
+	double skinprop(const cv::Mat &image);
 
 }
 

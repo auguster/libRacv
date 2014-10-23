@@ -9,6 +9,8 @@
 
 #include <libRacv/points.hpp>
 
+#include <opencv2/imgproc/imgproc.hpp>
+
 namespace racv
 {
 

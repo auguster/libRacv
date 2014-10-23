@@ -9,6 +9,7 @@
 
 #include <libRacv/video.hpp>
 
+#include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
 namespace racv
@@ -16,7 +17,7 @@ namespace racv
 
 	int frameCounter(cv::VideoCapture &capture)
 	{
-		capture.set(CV_CAP_PROP_POS_FRAMES, 0);
+		capture.set(cv::CAP_PROP_POS_FRAMES, 0);
 		int counter = 0;
 		cv::Mat frame;
 		while (capture.grab())
@@ -24,13 +25,13 @@ namespace racv
 			capture.retrieve(frame);
 			counter++;
 		}
-		capture.set(CV_CAP_PROP_POS_FRAMES, 0); //on remet la vidéo à zéro
+		capture.set(cv::CAP_PROP_POS_FRAMES, 0); //on remet la vidéo à zéro
 		return counter;
 	}
 
 	bool fastforward(cv::VideoCapture &capture, int stopFrame)
 	{
-		int counter = capture.get(CV_CAP_PROP_POS_FRAMES);
+		int counter = capture.get(cv::CAP_PROP_POS_FRAMES);
 		std::cout << counter << std::endl;
 		cv::Mat frame;
 		while (capture.grab() && counter < stopFrame)
