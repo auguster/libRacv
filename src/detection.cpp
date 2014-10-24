@@ -9,8 +9,6 @@
 
 #include <libRacv/detection.hpp>
 
-#include <opencv2/imgproc/imgproc.hpp>
-
 namespace racv
 {
 

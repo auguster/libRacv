@@ -6,7 +6,8 @@
 #ifndef GRABCUT_HPP_
 #define GRABCUT_HPP_
 
-#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
 
 namespace racv
 {

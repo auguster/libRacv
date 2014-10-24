@@ -9,7 +9,6 @@
 
 #include <libRacv/video.hpp>
 
-#include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
 namespace racv
