@@ -10,7 +10,7 @@
 #ifndef RECT_HPP_
 #define RECT_HPP_
 
-#include <opencv2/core/core.hpp>
+#include <opencv2/core.hpp>
 
 namespace racv
 {
@@ -22,6 +22,7 @@ namespace racv
 	{
 	public:
 		Rect();
+		Rect(const cv::Rect &other);
 		Rect(int x, int y, int width, int height);
 		Rect(const cv::Point& org, const cv::Size& sz);
 		Rect(const cv::Point& pt1, const cv::Point& pt2);
@@ -30,7 +31,13 @@ namespace racv
 		 * Compares the area of rectangle with another one
 		 */
 		bool operator<(const racv::Rect &other) const;
+
+		/**
+		 * Merges two rectangle using their combined min x,y and max x,y
+		 */
+		const Rect &operator+(const racv::Rect &other) const;
 		const Rect &operator+=(const racv::Rect &other);
+
 		virtual ~Rect();
 	};
 

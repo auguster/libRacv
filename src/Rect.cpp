@@ -12,23 +12,28 @@
 namespace racv
 {
 	Rect::Rect() :
-		cv::Rect_<int>()
+			cv::Rect_<int>()
 	{
 
 	}
 
 	Rect::Rect(const cv::Point & pt1, const cv::Point & pt2) :
-		cv::Rect_<int>(pt1, pt2)
+			cv::Rect_<int>(pt1, pt2)
 	{
 	}
 
 	Rect::Rect(int x, int y, int width, int height) :
-		cv::Rect_<int>(x, y, width, height)
+			cv::Rect_<int>(x, y, width, height)
 	{
 	}
 
 	Rect::Rect(const cv::Point & org, const cv::Size & sz) :
-		cv::Rect_<int>(org, sz)
+			cv::Rect_<int>(org, sz)
+	{
+	}
+
+	Rect::Rect(const cv::Rect &other) :
+				cv::Rect_<int>(other)
 	{
 	}
 
@@ -41,22 +46,19 @@ namespace racv
 		return (this->area()) < (other.area());
 	}
 
+	const Rect &Rect::operator+(const racv::Rect &other) const
+	{
+		racv::Rect *temp = new racv::Rect();
+		temp->x = cv::min(this->x, other.x);
+		temp->y = cv::min(this->y, other.y);
+		temp->width = cv::max(this->br().x, other.br().x) - temp->x;
+		temp->height = cv::max(this->br().y, other.br().y) - temp->y;
+		return *temp;
+	}
+
 	const Rect &Rect::operator+=(const racv::Rect &other)
 	{
-		if (other.x < this->x)
-			this->x = other.x;
-
-		if (other.y < this->y)
-			this->y = other.y;
-
-		/*FIXME modifier width et height au lieu de br()
-		if (other.br().x > this->br().x)
-			this->br().x = other.br().x;
-
-		if (other.br().y > this->br().y)
-			this->br().y = other.br().y;
-		*/
-
+		*this = *this + other;
 		return *this;
 	}
 
