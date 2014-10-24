@@ -1,7 +1,5 @@
 #include <libRacv/skinprop.hpp>
 
-#include <opencv2/imgproc/imgproc.hpp>
-
 namespace racv
 {
 	double skinprop(const cv::Mat &image)

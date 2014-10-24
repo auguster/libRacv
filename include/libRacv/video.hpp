@@ -10,7 +10,7 @@
 #ifndef VIDEO_HPP_
 #define VIDEO_HPP_
 
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui.hpp>
 
 namespace racv {
 

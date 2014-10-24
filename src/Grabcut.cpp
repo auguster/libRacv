@@ -9,8 +9,6 @@
 #include <libRacv/Grabcut.hpp>
 #include <libRacv/skinprop.hpp>
 
-#include <opencv2/imgproc/imgproc.hpp>
-
 #include <iostream>
 
 namespace racv

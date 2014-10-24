@@ -7,9 +7,6 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-
 #include <libRacv/drawing/ellipse.hpp>
 
 namespace racv

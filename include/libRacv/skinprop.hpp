@@ -1,7 +1,8 @@
 #ifndef SKINPROP_HPP_
 #define SKINPROP_HPP_
 
-#include <opencv2/core/core.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
 
 namespace racv
 {

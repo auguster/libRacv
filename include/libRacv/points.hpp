@@ -10,8 +10,8 @@
 #ifndef POINTS_HPP_
 #define POINTS_HPP_
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
 
 namespace racv {
 
