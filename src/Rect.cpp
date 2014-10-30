@@ -33,7 +33,7 @@ namespace racv
 	}
 
 	Rect::Rect(const cv::Rect &other) :
-				cv::Rect_<int>(other)
+			cv::Rect_<int>(other)
 	{
 	}
 
@@ -62,4 +62,56 @@ namespace racv
 		return *this;
 	}
 
+}
+
+void racv::Rect::scaleWidth(double scale)
+{
+	this->scale(scale, 1);
+}
+
+void racv::Rect::scaleHeight(double scale)
+{
+	this->scale(1, scale);
+}
+
+cv::Point racv::Rect::center() const
+{
+	return cv::Point(this->x + this->width / 2, this->y + this->height / 2);
+}
+
+void racv::Rect::scale(double widthScale, double heightScale)
+{
+	int oldwith = this->width;
+	this->width *= widthScale;
+	this->x = this->x + (oldwith - this->width) / 2;
+	int oldHeight = this->height;
+	this->height *= heightScale;
+	this->y = this->y + (oldHeight - this->height) / 2;
+}
+
+void racv::Rect::scale(double scale)
+{
+	this->scale(scale, scale);
+}
+
+const racv::Rect& racv::Rect::scaledWidth(double scale)
+{
+	return this->scaled(scale, 1);
+}
+
+const racv::Rect& racv::Rect::scaledHeight(double scale)
+{
+	return this->scaled(1, scale);
+}
+
+const racv::Rect& racv::Rect::scaled(double widthScale, double heightScale)
+{
+	Rect *temp = new Rect(*this);
+	temp->scale(widthScale, heightScale);
+	return *temp;
+}
+
+const racv::Rect& racv::Rect::scaled(double scale)
+{
+	return this->scaled(scale, scale);
 }

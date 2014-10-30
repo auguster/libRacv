@@ -28,6 +28,27 @@ namespace racv
 		Rect(const cv::Point& pt1, const cv::Point& pt2);
 
 		/**
+		 * Scales the height or width of the current rectangle but keeps the center in the same position
+		 */
+		void scaleWidth(double scale);
+		void scaleHeight(double scale);
+		void scale(double widthScale, double heightScale);
+		void scale(double scale);
+
+		/**
+		 * Returns a scaled copy of the current rectangle
+		 */
+		const Rect & scaledWidth(double scale);
+		const Rect & scaledHeight(double scale);
+		const Rect & scaled(double widthScale, double heightScale);
+		const Rect & scaled(double scale);
+
+		/**
+		 * Returns the position of the center of the rectangle
+		 */
+		cv::Point center() const;
+
+		/**
 		 * Compares the area of rectangle with another one
 		 */
 		bool operator<(const racv::Rect &other) const;
