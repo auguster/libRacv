@@ -26,6 +26,8 @@ namespace racv
 		Rect(int x, int y, int width, int height);
 		Rect(const cv::Point& org, const cv::Size& sz);
 		Rect(const cv::Point& pt1, const cv::Point& pt2);
+		Rect(std::vector<cv::Point> &points);
+		Rect(const cv::Mat &image);
 
 		/**
 		 * Scales the height or width of the current rectangle but keeps the center in the same position
@@ -38,15 +40,25 @@ namespace racv
 		/**
 		 * Returns a scaled copy of the current rectangle
 		 */
-		const Rect & scaledWidth(double scale);
-		const Rect & scaledHeight(double scale);
-		const Rect & scaled(double widthScale, double heightScale);
-		const Rect & scaled(double scale);
+		const Rect & scaledWidth(double scale) const;
+		const Rect & scaledHeight(double scale) const;
+		const Rect & scaled(double widthScale, double heightScale) const;
+		const Rect & scaled(double scale) const;
 
 		/**
 		 * Returns the position of the center of the rectangle
 		 */
 		cv::Point center() const;
+
+		/**
+		 * Change the referential of the rectangle
+		 */
+		void changeSpace(const racv::Rect &from, const racv::Rect &to);
+
+		/**
+		 * Returns a copy of the rectangle whose referential was changed
+		 */
+		const Rect & changedSpace(const racv::Rect &from, const racv::Rect &to) const;
 
 		/**
 		 * Compares the area of rectangle with another one
