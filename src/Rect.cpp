@@ -139,4 +139,24 @@ namespace racv
 		return *temp;
 	}
 
+	void Rect::fit(const racv::Rect& container)
+	{
+		this->x = cv::max(0, this->x);
+		this->y = cv::max(0, this->y);
+		this->width = cv::min(this->width, container.width - this->x);
+		this->height = cv::min(this->height, container.height - this->y);
+		this->width = cv::max(0, this->width);
+		this->height = cv::max(0, this->height);
+	}
+
+	void racv::Rect::fit(const cv::Mat& container)
+	{
+		this->fit(racv::Rect(container));
+	}
+
+	void racv::Rect::fit(const cv::Size& size)
+	{
+		this->fit(racv::Rect(0, 0, size.width, size.height));
+	}
 }
+

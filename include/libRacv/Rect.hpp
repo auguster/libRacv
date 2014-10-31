@@ -62,6 +62,10 @@ namespace racv
 		 */
 		Rect & changedSpace(const racv::Rect &from, const racv::Rect &to) const;
 
+		void fit(const racv::Rect &container);
+		void fit(const cv::Mat &container);
+		void fit(const cv::Size &size);
+
 		/**
 		 * Compares the area of rectangle with another one
 		 */

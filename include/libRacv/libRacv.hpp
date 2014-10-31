@@ -20,6 +20,7 @@
 #include <libRacv/Grabcut.hpp>
 #include <libRacv/skinprop.hpp>
 #include <libRacv/Point.hpp>
+#include <libRacv/Roi.hpp>
 
 namespace racv
 {

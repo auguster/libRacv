@@ -12,6 +12,11 @@ racv::Point::Point(const cv::Point& point) :
 {
 }
 
+racv::Point::Point(int x, int y) :
+		cv::Point_<int>(x, y)
+{
+}
+
 void racv::Point::changeSpace(const racv::Rect& from, const racv::Rect& to)
 {
 	this->x += from.x - to.x;

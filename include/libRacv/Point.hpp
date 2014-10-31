@@ -17,11 +17,12 @@ namespace racv
 	class Rect;
 
 	/**
-	 * This class provides an extension of OpenCV's Rect
+	 * This class provides an extension of OpenCV's Point
 	 */
 	class Point: public cv::Point_<int>
 	{
 	public:
+		Point(int x, int y);
 		Point(const cv::Point &point);
 
 		/**
