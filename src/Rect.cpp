@@ -84,7 +84,7 @@ namespace racv
 		this->scale(1, scale);
 	}
 
-	cv::Point Rect::center() const
+	racv::Point Rect::center() const
 	{
 		return cv::Point(this->x + this->width / 2, this->y + this->height / 2);
 	}

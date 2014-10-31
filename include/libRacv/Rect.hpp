@@ -11,9 +11,11 @@
 #define RECT_HPP_
 
 #include <opencv2/core.hpp>
+#include <libRacv/Point.hpp>
 
 namespace racv
 {
+	class Point;
 
 	/**
 	 * This class provides an extension of OpenCV's Rect
@@ -48,7 +50,7 @@ namespace racv
 		/**
 		 * Returns the position of the center of the rectangle
 		 */
-		cv::Point center() const;
+		racv::Point center() const;
 
 		/**
 		 * Change the referential of the rectangle

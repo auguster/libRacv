@@ -5,15 +5,16 @@
  *      Author: remi
  */
 
+
 #ifndef POINT_HPP_
 #define POINT_HPP_
 
 #include <opencv2/core.hpp>
-
 #include <libRacv/Rect.hpp>
 
 namespace racv
 {
+	class Rect;
 
 	/**
 	 * This class provides an extension of OpenCV's Rect
