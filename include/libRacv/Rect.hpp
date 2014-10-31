@@ -40,10 +40,10 @@ namespace racv
 		/**
 		 * Returns a scaled copy of the current rectangle
 		 */
-		const Rect & scaledWidth(double scale) const;
-		const Rect & scaledHeight(double scale) const;
-		const Rect & scaled(double widthScale, double heightScale) const;
-		const Rect & scaled(double scale) const;
+		Rect & scaledWidth(double scale) const;
+		Rect & scaledHeight(double scale) const;
+		Rect & scaled(double widthScale, double heightScale) const;
+		Rect & scaled(double scale) const;
 
 		/**
 		 * Returns the position of the center of the rectangle
@@ -58,7 +58,7 @@ namespace racv
 		/**
 		 * Returns a copy of the rectangle whose referential was changed
 		 */
-		const Rect & changedSpace(const racv::Rect &from, const racv::Rect &to) const;
+		Rect & changedSpace(const racv::Rect &from, const racv::Rect &to) const;
 
 		/**
 		 * Compares the area of rectangle with another one
@@ -68,8 +68,8 @@ namespace racv
 		/**
 		 * Merges two rectangle using their combined min x,y and max x,y
 		 */
-		const Rect &operator+(const racv::Rect &other) const;
-		const Rect &operator+=(const racv::Rect &other);
+		Rect &operator+(const racv::Rect &other) const;
+		Rect &operator+=(const racv::Rect &other);
 
 		virtual ~Rect();
 	};

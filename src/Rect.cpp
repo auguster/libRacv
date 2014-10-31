@@ -58,7 +58,7 @@ namespace racv
 		return (this->area()) < (other.area());
 	}
 
-	const racv::Rect &Rect::operator+(const racv::Rect &other) const
+	racv::Rect &Rect::operator+(const racv::Rect &other) const
 	{
 		racv::Rect *temp = new racv::Rect();
 		temp->x = cv::min(this->x, other.x);
@@ -68,7 +68,7 @@ namespace racv
 		return *temp;
 	}
 
-	const racv::Rect &Rect::operator+=(const racv::Rect &other)
+	racv::Rect &Rect::operator+=(const racv::Rect &other)
 	{
 		*this = *this + other;
 		return *this;
@@ -104,24 +104,24 @@ namespace racv
 		this->scale(scale, scale);
 	}
 
-	const racv::Rect& Rect::scaledWidth(double scale) const
+	racv::Rect& Rect::scaledWidth(double scale) const
 	{
 		return this->scaled(scale, 1);
 	}
 
-	const racv::Rect& Rect::scaledHeight(double scale) const
+	racv::Rect& Rect::scaledHeight(double scale) const
 	{
 		return this->scaled(1, scale);
 	}
 
-	const racv::Rect& Rect::scaled(double widthScale, double heightScale) const
+	racv::Rect& Rect::scaled(double widthScale, double heightScale) const
 	{
 		Rect *temp = new Rect(*this);
 		temp->scale(widthScale, heightScale);
 		return *temp;
 	}
 
-	const racv::Rect& Rect::scaled(double scale) const
+	racv::Rect& Rect::scaled(double scale) const
 	{
 		return this->scaled(scale, scale);
 	}
@@ -132,7 +132,7 @@ namespace racv
 		this->y += from.y - to.y;
 	}
 
-	const Rect& Rect::changedSpace(const racv::Rect& from, const racv::Rect& to) const
+	Rect& Rect::changedSpace(const racv::Rect& from, const racv::Rect& to) const
 	{
 		Rect *temp = new Rect(*this);
 		temp->changeSpace(from, to);

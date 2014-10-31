@@ -19,6 +19,7 @@
 #include <libRacv/Rect.hpp>
 #include <libRacv/Grabcut.hpp>
 #include <libRacv/skinprop.hpp>
+#include <libRacv/Point.hpp>
 
 namespace racv
 {
