@@ -10,15 +10,16 @@
 #ifndef LIBRACV_HPP_
 #define LIBRACV_HPP_
 
-#include <libRacv/detection.hpp>
-#include <libRacv/points.hpp>
-#include <libRacv/color.hpp>
-#include <libRacv/matrix.hpp>
-#include <libRacv/rectangle.hpp>
-#include <libRacv/video.hpp>
+/**
+ * Usefull functions
+ */
+#include <libRacv/tools/tools.hpp>
+
+/**
+ * Usefull classes
+ */
 #include <libRacv/Rect.hpp>
 #include <libRacv/Grabcut.hpp>
-#include <libRacv/skinprop.hpp>
 #include <libRacv/Point.hpp>
 #include <libRacv/Roi.hpp>
 

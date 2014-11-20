@@ -7,7 +7,7 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/points.hpp>
+#include <libRacv/tools/points.hpp>
 
 namespace racv
 {

@@ -9,7 +9,7 @@
 
 #include <libRacv/Rect.hpp>
 
-#include <libRacv/points.hpp>
+#include <libRacv/tools/points.hpp>
 
 namespace racv
 {

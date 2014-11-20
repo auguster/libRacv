@@ -7,27 +7,9 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/Point.hpp>
+#ifndef DRAWING_HPP_
+#define DRAWING_HPP_
 
-racv::Point::Point(const cv::Point& point) :
-		cv::Point_<int>(point)
-{
-}
+#include "ellipse.hpp"
 
-racv::Point::Point(int x, int y) :
-		cv::Point_<int>(x, y)
-{
-}
-
-void racv::Point::changeSpace(const racv::Rect& from, const racv::Rect& to)
-{
-	this->x += from.x - to.x;
-	this->y += from.y - to.y;
-}
-
-racv::Point& racv::Point::changedSpace(const racv::Rect& from, const racv::Rect& to) const
-{
-	racv::Point *temp = new racv::Point(*this);
-	temp->changeSpace(from, to);
-	return *temp;
-}
+#endif /* DRAWING_HPP_ */

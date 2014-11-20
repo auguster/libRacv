@@ -7,42 +7,26 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/detection.hpp>
+#include <libRacv/tools/color.hpp>
+
+#include <iostream>
 
 namespace racv
 {
-
-	void smartDetect(cv::CascadeClassifier detector, cv::Mat &frame, std::vector<cv::Rect> &rectList)
+	int getColor(int r, int g, int b)
 	{
-		if (rectList.size() <= 0)
-		{
-			detector.detectMultiScale(frame, rectList, 1.3);
-			return;
-		}
-
-		cv::Mat smallerFrame;
-		std::vector<cv::Rect> list;
-		double scaleLevel = 0.125;
-		//tries to find at least the same number of object as before at the same scalelevel
-		while (scaleLevel <= 1 && list.size() < ((rectList.size() > 0) ? rectList.size() : 1))
-		{
-			cv::resize(frame, smallerFrame, cv::Size(), scaleLevel, scaleLevel);
-			detector.detectMultiScale(smallerFrame, list, 1.3);
-			scaleLevel *= 2;
-		}
-		scaleLevel /= 2;
-
-		rectList.clear();
-
-		for (std::vector<cv::Rect>::iterator rect = list.begin(); rect < list.end(); rect++)
-		{
-			cv::Rect fullSize = *rect;
-			fullSize.x /= scaleLevel;
-			fullSize.y /= scaleLevel;
-			fullSize.height /= scaleLevel;
-			fullSize.width /= scaleLevel;
-			rectList.push_back(fullSize);
-		}
+		return (r*256+g)*256+b;
 	}
 
-} // namespace racv
+	int getChannel(int color, int channel)
+	{
+		return (color >> ((2 - channel) * 8) & 255);
+	}
+
+	void showPixelColor(int pixel)
+	{
+		std::cout << "RGB(" << getChannel(pixel, RACV_RED_CHANNEL) << ", " << getChannel(pixel, RACV_GREEN_CHANNEL) << ", " << getChannel(pixel, RACV_BLUE_CHANNEL) << ")" << std::endl;
+	}
+
+}
+

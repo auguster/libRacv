@@ -7,37 +7,35 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/video.hpp>
-
-#include <iostream>
+#include <libRacv/tools/drawing/ellipse.hpp>
 
 namespace racv
 {
-
-	int frameCounter(cv::VideoCapture &capture)
+	void drawFilledEllipse(cv::Mat &image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &color)
 	{
-		capture.set(cv::CAP_PROP_POS_FRAMES, 0);
-		int counter = 0;
-		cv::Mat frame;
-		while (capture.grab())
-		{
-			capture.retrieve(frame);
-			counter++;
-		}
-		capture.set(cv::CAP_PROP_POS_FRAMES, 0); //on remet la vidéo à zéro
-		return counter;
+		std::vector<cv::Point> pts;
+		cv::ellipse2Poly(center, size, angle, startingAngle, endingAngle, 1, pts);
+
+		cv::Point *points;
+		points = &pts[0];
+		int nbtab = pts.size();
+
+		cv::fillPoly(image, (const cv::Point **) &points, &nbtab, 1, color, 0);
 	}
 
-	bool fastforward(cv::VideoCapture &capture, int stopFrame)
+	void drawFilledEllipse(cv::Mat &image, cv::Point center, cv::Size size, double angle, double startingAngle, double endingAngle, const cv::Scalar &color, double alpha)
 	{
-		int counter = capture.get(cv::CAP_PROP_POS_FRAMES);
-		std::cout << counter << std::endl;
-		cv::Mat frame;
-		while (capture.grab() && counter < stopFrame)
-		{
-			counter++;
-		}
-		return (counter == stopFrame);
+		cv::Mat tempImage(image.rows, image.cols, image.type());
+		drawFilledEllipse(tempImage, center, size, angle, startingAngle, endingAngle, color);
+		cv::addWeighted(tempImage, alpha, image, 1, 0, image);
 	}
 
-}
+	void drawEllipseFromRect(cv::Mat &image, cv::Rect rect, cv::Scalar color)
+	{
+		cv::Point center;
+		center.x = rect.x + rect.width / 2;
+		center.y = rect.y + rect.height / 2;
+		cv::Size size(rect.width / 2, rect.height / 2);
+		racv::drawFilledEllipse(image, center, size, 0, 0, 360, color);
+	}
+} // namespace racv

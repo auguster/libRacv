@@ -7,7 +7,7 @@
  * Contact: Rémi Auguste <remi.auguste@gmail.com>
  */
 
-#include <libRacv/matrix.hpp>
+#include <libRacv/tools/matrix.hpp>
 
 #include <vector>
 
