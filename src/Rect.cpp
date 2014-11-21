@@ -158,5 +158,25 @@ namespace racv
 	{
 		this->fit(racv::Rect(0, 0, size.width, size.height));
 	}
-}
 
+	cv::Point Rect::getLeft()
+	{
+		return cv::Point(this->x, this->y + this->height / 2);
+	}
+
+	cv::Point Rect::getRight()
+	{
+		return cv::Point(this->x + this->width, this->y + this->height / 2);
+	}
+
+	cv::Point Rect::getTop()
+	{
+		return cv::Point(this->x + this->width / 2, this->y);
+	}
+
+	cv::Point Rect::getBottom()
+	{
+		return cv::Point(this->x + this->width / 2, this->y + this->height);
+	}
+
+}

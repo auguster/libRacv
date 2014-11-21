@@ -22,13 +22,8 @@ namespace racv
 		channels.push_back(value);
 		cv::split(hsv, channels);
 		cv::threshold(hue, hue, 18, 255, cv::THRESH_BINARY_INV);
-		cv::threshold(saturation, saturation, 50, 255, cv::THRESH_BINARY_INV);
-		cv::threshold(value, value, 80, 255, cv::THRESH_BINARY_INV);
-		cv::Mat output;
-		cv::bitwise_and(hue, saturation, output);
-		cv::bitwise_and(output, value, output);
-		cv::Scalar sums = cv::sum(output);
-		double result = sums[0] / (output.rows * output.cols * 255);
+		cv::Scalar sums = cv::sum(hue);
+		double result = sums[0] / (image.rows * image.cols * 255);
 		return result;
 	}
 }

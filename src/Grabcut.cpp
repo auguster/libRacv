@@ -27,7 +27,6 @@ namespace racv
 	{
 		face.x -= face.height * 1.05 - face.height;
 		face.height *= 1.05;
-		racv::fitRectangle(image, face);
 
 		cv::Rect originalFace = face;
 		double skinref = skinprop(image(face));

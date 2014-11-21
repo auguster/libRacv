@@ -67,6 +67,14 @@ namespace racv
 		void fit(const cv::Size &size);
 
 		/**
+		 * Returns the center point of the side
+		 */
+		cv::Point getLeft();
+		cv::Point getRight();
+		cv::Point getTop();
+		cv::Point getBottom();
+
+		/**
 		 * Compares the area of rectangle with another one
 		 */
 		bool operator<(const racv::Rect &other) const;
