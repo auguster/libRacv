@@ -12,21 +12,7 @@
 namespace racv
 {
 
-	cv::Rect computeRectangleFloat(std::vector<cv::Point2f> &points)
-	{
-		cv::Point hautGauche = *(points.begin());
-		cv::Point basDroit = *(points.begin());
-		for (std::vector<cv::Point2f>::iterator point = points.begin(); point < points.end(); point++)
-		{
-			if (point->x < hautGauche.x) hautGauche.x = point->x;
-			if (point->y < hautGauche.y) hautGauche.y = point->y;
-			if (point->x > basDroit.x) basDroit.x = point->x;
-			if (point->y > basDroit.y) basDroit.y = point->y;
-		}
-		return cv::Rect(hautGauche, basDroit);
-	}
-
-	cv::Rect computeRectangle(std::vector<cv::Point > &points)
+	cv::Rect computeRectangle(std::vector<cv::Point> &points)
 	{
 		cv::Point hautGauche = *(points.begin());
 		cv::Point basDroit = *(points.begin());
@@ -40,19 +26,19 @@ namespace racv
 		return cv::Rect(hautGauche, basDroit);
 	}
 
-	void changeOrigin(cv::Point origin, std::vector<cv::Point2f> &points)
+	void changeOrigin(cv::Point origin, std::vector<cv::Point> &points)
 	{
-		for (std::vector<cv::Point2f>::iterator point = points.begin(); point < points.end(); point++)
+		for (std::vector<cv::Point>::iterator point = points.begin(); point < points.end(); point++)
 		{
 			point->x += origin.x;
 			point->y += origin.y;
 		}
 	}
 
-	std::vector<cv::Point2f> filterOut(std::vector<cv::Point2f> &points, std::vector<uchar> &status)
+	std::vector<cv::Point> filterOut(std::vector<cv::Point> &points, std::vector<uchar> &status)
 	{
-		std::vector<cv::Point2f> newPoints;
-		std::vector<cv::Point2f>::iterator point = points.begin();
+		std::vector<cv::Point> newPoints;
+		std::vector<cv::Point>::iterator point = points.begin();
 		std::vector<uchar>::iterator statu = status.begin();
 		while (point < points.end() && statu < status.end())
 		{
@@ -63,12 +49,45 @@ namespace racv
 		return newPoints;
 	}
 
-	void drawPoints(cv::Mat image, std::vector<cv::Point2f> &points, cv::Scalar color)
+	void drawPoints(cv::Mat image, std::vector<cv::Point> &points, cv::Scalar color)
 	{
-		for (std::vector<cv::Point2f>::iterator point = points.begin(); point < points.end(); point++)
+		for (std::vector<cv::Point>::iterator point = points.begin(); point < points.end(); point++)
 		{
 			cv::circle(image, *point, 1, color, 1, 2, 8);
 		}
+	}
+
+	cv::Point* computeMost(std::vector<cv::Point>& points)
+	{
+		cv::Point* result = new cv::Point[4];
+		for (int i = 0; i < 4; i++)
+		{
+			result[i] = points[0];
+		}
+		for (std::vector<cv::Point>::iterator point = points.begin(); point < points.end(); point++)
+		{
+			if (point->x < result[0].x) //most left
+			{
+				result[0] = *point;
+			}
+
+			if (point->x > result[1].x) //most right
+			{
+				result[1] = *point;
+			}
+
+			if (point->y > result[2].y) //lower
+			{
+				result[2] = *point;
+			}
+
+			if (point->y < result[3].y) //higher
+			{
+				result[3] = *point;
+			}
+		}
+		return result;
+
 	}
 
 	double horizontalAngle(cv::Point p1, cv::Point p2, cv::Rect facer)
