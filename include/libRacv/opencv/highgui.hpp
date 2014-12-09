@@ -14,6 +14,13 @@
 #include <opencv2/highgui.hpp>
 #else
 #include <opencv2/highgui/highgui.hpp>
+namespace cv
+{
+	enum
+	{
+		CAP_PROP_POS_FRAMES = 1
+	};
+}
 #endif
 
 #endif /* INCLUDE_LIBRACV_OPENCV_HIGHGUI_HPP_ */

@@ -14,8 +14,12 @@
 #include <opencv2/core.hpp>
 #else
 #include <opencv2/core/core.hpp>
-namespace cv{
-#define LINE_AA CV_LINE_AA
+namespace cv
+{
+	enum
+	{
+		LINE_AA = 16
+	};
 }
 #endif
 
