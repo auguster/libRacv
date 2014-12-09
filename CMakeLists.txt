@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
 project(libRacv)
-set(LIBRARY_OUTPUT_PATH lib/)
 
 file(
 	GLOB_RECURSE
