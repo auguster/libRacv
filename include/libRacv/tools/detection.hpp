@@ -10,8 +10,8 @@
 #ifndef DETECTION_HPP_
 #define DETECTION_HPP_
 
-#include <opencv2/objdetect.hpp>
-#include <opencv2/imgproc.hpp>
+#include <libRacv/opencv/objdetect.hpp>
+#include <libRacv/opencv/imgproc.hpp>
 
 namespace racv {
 

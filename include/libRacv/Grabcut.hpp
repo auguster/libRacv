@@ -10,8 +10,8 @@
 #ifndef GRABCUT_HPP_
 #define GRABCUT_HPP_
 
-#include <opencv2/core.hpp>
-#include <opencv2/imgproc.hpp>
+#include <libRacv/opencv/core.hpp>
+#include <libRacv/opencv/imgproc.hpp>
 
 namespace racv
 {

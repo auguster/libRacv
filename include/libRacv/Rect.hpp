@@ -10,7 +10,7 @@
 #ifndef RECT_HPP_
 #define RECT_HPP_
 
-#include <opencv2/core.hpp>
+#include <libRacv/opencv/core.hpp>
 #include <libRacv/Point.hpp>
 
 namespace racv

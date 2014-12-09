@@ -9,7 +9,7 @@
 
 #include <libRacv/Roi.hpp>
 
-#include <opencv2/imgproc.hpp>
+#include <libRacv/opencv/imgproc.hpp>
 
 racv::Roi::Roi(cv::Mat image) :
 		Rect(), image(image)

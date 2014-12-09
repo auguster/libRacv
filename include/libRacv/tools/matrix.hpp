@@ -10,7 +10,7 @@
 #ifndef MATRIX_HPP_
 #define MATRIX_HPP_
 
-#include <opencv2/core.hpp>
+#include <libRacv/opencv/core.hpp>
 
 namespace racv {
 	template < class typenombre >

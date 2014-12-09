@@ -11,7 +11,7 @@
 #ifndef POINT_HPP_
 #define POINT_HPP_
 
-#include <opencv2/core.hpp>
+#include <libRacv/opencv/core.hpp>
 #include <libRacv/Rect.hpp>
 
 namespace racv
