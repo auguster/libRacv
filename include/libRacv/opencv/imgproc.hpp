@@ -10,7 +10,7 @@
 
 #include <opencv2/core/version.hpp>
 
-#if CV_VERSION_MAJOR > 2
+#if CV_VERSION_MAJOR>2
 #include <opencv2/imgproc.hpp>
 #else
 #include <opencv2/imgproc/imgproc.hpp>
