@@ -8,6 +8,8 @@
 #ifndef INCLUDE_LIBRACV_OPENCV_HIGHGUI_HPP_
 #define INCLUDE_LIBRACV_OPENCV_HIGHGUI_HPP_
 
+#include <opencv2/core/version.hpp>
+
 #if CV_VERSION_MAJOR > 2
 #include <opencv2/highgui.hpp>
 #else
