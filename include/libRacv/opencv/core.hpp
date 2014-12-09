@@ -14,7 +14,9 @@
 #include <opencv2/core.hpp>
 #else
 #include <opencv2/core/core.hpp>
-#define cv::LINE_AA CV_LINE_AA
+namespace cv{
+#define LINE_AA CV_LINE_AA
+}
 #endif
 
 #endif /* INCLUDE_LIBRACV_OPENCV_CORE_HPP_ */
